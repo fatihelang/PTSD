@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c15dupfsmnuux"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_nt3vo"]
+
+[resource]
+script = ExtResource("1_nt3vo")
+card_name = "Saya akan genjot ekspor nasional"
+trust_effect = 2
+reputation_effect = 8
+tag = "Ekspor"
+metadata/_custom_type_script = "uid://buwukmvvf4pck"

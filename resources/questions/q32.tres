@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://du0swr0ulh2rb"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_rvfd3"]
+
+[resource]
+script = ExtResource("1_rvfd3")
+npc_name = "Buruh Perkebunan Sawit"
+question_text = "Upah kami di bawah standar, padahal sawit ini bikin negara kaya."
+likes = Array[String](["Bansos", "Pajak"])
+dislikes = Array[String](["Deregulasi"])
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

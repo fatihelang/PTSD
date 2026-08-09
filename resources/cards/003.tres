@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://6hwb7x0rdxtf"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_4fca0"]
+
+[resource]
+script = ExtResource("1_4fca0")
+card_name = "Saya tunda sampai saya niat"
+trust_effect = -8
+reputation_effect = -4
+tag = "Tunda"
+metadata/_custom_type_script = "uid://buwukmvvf4pck"

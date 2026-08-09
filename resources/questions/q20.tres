@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://bc18x6f5wh4fx"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_32fea"]
+
+[resource]
+script = ExtResource("1_32fea")
+npc_name = "Perwira Aktif"
+question_text = "Alutsista kita ketinggalan, tetangga makin canggih."
+likes = Array[String](["Investasi"])
+dislikes = Array[String](["Evaluasi"])
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

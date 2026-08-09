@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cc2a2ibgnb61t"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_fdeho"]
+
+[resource]
+script = ExtResource("1_fdeho")
+card_name = "Saya akan tindak tegas siapa pun yang melanggar"
+trust_effect = -6
+reputation_effect = 6
+tag = "Represif"
+metadata/_custom_type_script = "uid://buwukmvvf4pck"

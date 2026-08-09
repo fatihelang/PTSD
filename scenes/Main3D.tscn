@@ -1,0 +1,354 @@
+[gd_scene format=3 uid="uid://b11ai6u4l4fru"]
+
+[ext_resource type="Script" uid="uid://uyk1o42g0edg" path="res://scenes/player_head.gd" id="1_vjhcd"]
+[ext_resource type="Script" uid="uid://dyuaf1a4unwow" path="res://scenes/right_hand.gd" id="2_1d72u"]
+[ext_resource type="Script" uid="uid://d2rsx56rgst1w" path="res://scenes/card_fan.gd" id="3_qhbaj"]
+[ext_resource type="Script" uid="uid://5d340cxm5g2b" path="res://scripts/card_info_display.gd" id="4_f3gxh"]
+[ext_resource type="Script" uid="uid://cda8gxoen8rpu" path="res://scripts/card_inspect_display.gd" id="5_1iatr"]
+[ext_resource type="Script" uid="uid://b6a0emb5vrl7s" path="res://scripts/speech_bubble.gd" id="6_c0t86"]
+[ext_resource type="Script" uid="uid://cqqtu6k6bhnp0" path="res://scripts/npc_controller.gd" id="7_veire"]
+[ext_resource type="Script" uid="uid://b3l4weits7eyh" path="res://scripts/ending_display.gd" id="8_37kgh"]
+[ext_resource type="Script" uid="uid://evyifngbxr4r" path="res://scripts/game_flow_controller.gd" id="8_xgncb"]
+[ext_resource type="Script" uid="uid://di21peuc35j8b" path="res://scripts/floating_numbers_layer.gd" id="9_gtawn"]
+[ext_resource type="Script" uid="uid://d4kr63iedd2ia" path="res://scripts/stat_bars.gd" id="10_uki8y"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5h11f"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d72u"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5h11f"]
+material = SubResource("StandardMaterial3D_1d72u")
+size = Vector3(1, 1.2, 0.6)
+subdivide_width = 1
+subdivide_height = 1
+subdivide_depth = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx8n8"]
+albedo_color = Color(0.7271296, 0.4618327, 0.29770458, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5h11f"]
+material = SubResource("StandardMaterial3D_bx8n8")
+radius = 0.05
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhbaj"]
+albedo_color = Color(0.71847, 0.47161293, 0.40394953, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bx8n8"]
+material = SubResource("StandardMaterial3D_qhbaj")
+radius = 0.05
+height = 0.25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iatr"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.78431374)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h11f"]
+bg_color = Color(0.0885599, 0.0885599, 0.0885599, 0.8745098)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0t86"]
+bg_color = Color(0.9383754, 0.84486204, 0.76692086, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1iatr"]
+albedo_color = Color(0, 0.2901961, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5iqjx"]
+material = SubResource("StandardMaterial3D_1iatr")
+radius = 0.3
+height = 1.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_c0t86"]
+radius = 0.22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgncb"]
+bg_color = Color(0, 0, 0, 0.8627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5iqjx"]
+bg_color = Color(0.88049585, 0.8804958, 0.88049585, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uki8y"]
+bg_color = Color(1.6845763e-06, 0.7819823, 1.92523e-06, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx8n8"]
+bg_color = Color(0.9714188, 0.030220335, 0.37790665, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Main3d" type="Node3D" unique_id=1108025950]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1810852907]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=2055354303]
+mesh = SubResource("PlaneMesh_5h11f")
+
+[node name="Podium" type="MeshInstance3D" parent="." unique_id=1997428624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1)
+mesh = SubResource("BoxMesh_5h11f")
+
+[node name="PlayerHead" type="Node3D" parent="." unique_id=1294479857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+script = ExtResource("1_vjhcd")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerHead" unique_id=794186807]
+
+[node name="RightHand" type="Node3D" parent="PlayerHead" unique_id=338450940]
+script = ExtResource("2_1d72u")
+rest_position = Vector3(0.28, -0.32, -0.5)
+
+[node name="HandMesh" type="MeshInstance3D" parent="PlayerHead/RightHand" unique_id=199858781]
+transform = Transform3D(0.9659258, 0.25881904, 0, -0.23456971, 0.87542605, -0.42261827, -0.10938165, 0.4082179, 0.90630776, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_5h11f")
+
+[node name="LeftHand" type="Node3D" parent="PlayerHead" unique_id=785530566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.42, -0.5)
+
+[node name="HandMesh" type="MeshInstance3D" parent="PlayerHead/LeftHand" unique_id=493988398]
+transform = Transform3D(0.9396926, -0.34202012, 0, 0.3213938, 0.8830222, -0.34202012, 0.116977766, 0.3213938, 0.9396926, -0.25, -0.35, -0.55)
+mesh = SubResource("CapsuleMesh_bx8n8")
+
+[node name="CardFan" type="Node3D" parent="PlayerHead" unique_id=1117633657]
+script = ExtResource("3_qhbaj")
+npc_controller_path = NodePath("../../HUD/NPC")
+right_hand_path = NodePath("../RightHand")
+info_display_path = NodePath("../../HUD/CardInfoPanel")
+inspect_display_path = NodePath("../../HUD/InspectPanel")
+npc_throw_target_path = NodePath("../../HUD/NPC/NPCThrowTarget")
+world_root_path = NodePath("../..")
+player_head_path = NodePath("..")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=448140615]
+
+[node name="CardInfoPanel" type="PanelContainer" parent="HUD" unique_id=2109817081]
+offset_left = -9.0
+offset_top = 320.0
+offset_right = 391.0
+offset_bottom = 430.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1iatr")
+script = ExtResource("4_f3gxh")
+metadata/_edit_use_anchors_ = true
+
+[node name="ContentVBox" type="VBoxContainer" parent="HUD/CardInfoPanel" unique_id=344814874]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CardArt" type="TextureRect" parent="HUD/CardInfoPanel/ContentVBox" unique_id=227236126]
+layout_mode = 2
+expand_mode = 3
+
+[node name="CardText" type="Label" parent="HUD/CardInfoPanel/ContentVBox" unique_id=1972330480]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "tesasa"
+autowrap_mode = 2
+
+[node name="HintText" type="Label" parent="HUD/CardInfoPanel/ContentVBox" unique_id=1215558247]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38170326, 0.38170323, 0.38170323, 1)
+text = "E: Pakai Kartu   |   Q: Lihat Detail"
+
+[node name="InspectPanel" type="PanelContainer" parent="HUD" unique_id=546022559]
+visible = false
+offset_left = 376.0
+offset_top = 460.0
+offset_right = 776.0
+offset_bottom = 610.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+script = ExtResource("5_1iatr")
+
+[node name="InspectVBox" type="VBoxContainer" parent="HUD/InspectPanel" unique_id=424668960]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="InspectText" type="Label" parent="HUD/InspectPanel/InspectVBox" unique_id=1200544108]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 2
+
+[node name="InspectHint" type="Label" parent="HUD/InspectPanel/InspectVBox" unique_id=1361536679]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+theme_override_font_sizes/font_size = 16
+text = "E: Pakai Kartu    |    Q: Kembali "
+
+[node name="SpeechBubble" type="Control" parent="HUD" unique_id=808525699]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_c0t86")
+world_anchor_path = NodePath("../NPC/SpeechAnchor")
+camera_path = NodePath("../../PlayerHead/Camera3D")
+
+[node name="Bubble" type="PanelContainer" parent="HUD/SpeechBubble" unique_id=1445089732]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 110.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0t86")
+
+[node name="BubbleVBox" type="VBoxContainer" parent="HUD/SpeechBubble/Bubble" unique_id=159035835]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameText" type="Label" parent="HUD/SpeechBubble/Bubble/BubbleVBox" unique_id=1713937206]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+
+[node name="QuestionText" type="Label" parent="HUD/SpeechBubble/Bubble/BubbleVBox" unique_id=1404323182]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="NPC" type="Node3D" parent="HUD" unique_id=925441599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+script = ExtResource("7_veire")
+speech_bubble_path = NodePath("../SpeechBubble")
+
+[node name="Body" type="MeshInstance3D" parent="HUD/NPC" unique_id=2021829863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_5iqjx")
+
+[node name="Head" type="MeshInstance3D" parent="HUD/NPC" unique_id=761723724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6078773, 0)
+mesh = SubResource("SphereMesh_c0t86")
+
+[node name="SpeechAnchor" type="Marker3D" parent="HUD/NPC" unique_id=205495548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, 0)
+
+[node name="NPCThrowTarget" type="Marker3D" parent="HUD/NPC" unique_id=449389158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="EndingDisplay" type="Panel" parent="HUD" unique_id=1370872846]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xgncb")
+script = ExtResource("8_37kgh")
+
+[node name="Title" type="Label" parent="HUD/EndingDisplay" unique_id=1318805290]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="Text" type="Label" parent="HUD/EndingDisplay" unique_id=1756123674]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 580.0
+offset_bottom = 188.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 2
+
+[node name="FloatingNumbersLayer" type="Control" parent="HUD" unique_id=37412102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_gtawn")
+world_anchor_path = NodePath("../NPC/SpeechAnchor")
+camera_path = NodePath("../../PlayerHead/Camera3D")
+
+[node name="StatBars" type="Control" parent="HUD" unique_id=38054827]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 244.0
+offset_bottom = 84.0
+script = ExtResource("10_uki8y")
+
+[node name="BarsVBox" type="VBoxContainer" parent="HUD/StatBars" unique_id=1978309568]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 8
+
+[node name="TrustBar" type="ProgressBar" parent="HUD/StatBars/BarsVBox" unique_id=1099316467]
+custom_minimum_size = Vector2(220, 22)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5iqjx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uki8y")
+show_percentage = false
+
+[node name="RepBar" type="ProgressBar" parent="HUD/StatBars/BarsVBox" unique_id=1098072029]
+custom_minimum_size = Vector2(220, 22)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5iqjx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bx8n8")
+show_percentage = false
+
+[node name="GameFlowController" type="Node" parent="." unique_id=1542437549]
+script = ExtResource("8_xgncb")
+card_fan_path = NodePath("../PlayerHead/CardFan")
+npc_controller_path = NodePath("../HUD/NPC")
+ending_display_path = NodePath("../HUD/EndingDisplay")
+stat_bars_path = NodePath("../HUD/StatBars")
+floating_numbers_path = NodePath("../HUD/FloatingNumbersLayer")

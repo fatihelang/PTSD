@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://b11ai6u4l4fru"]
+
+[ext_resource type="Script" uid="uid://uyk1o42g0edg" path="res://scenes/player_head.gd" id="1_vjhcd"]
+[ext_resource type="Script" uid="uid://dyuaf1a4unwow" path="res://scenes/right_hand.gd" id="2_1d72u"]
+[ext_resource type="Script" uid="uid://d2rsx56rgst1w" path="res://scenes/card_fan.gd" id="3_qhbaj"]
+[ext_resource type="Script" uid="uid://5d340cxm5g2b" path="res://scripts/card_info_display.gd" id="4_f3gxh"]
+[ext_resource type="Script" uid="uid://cda8gxoen8rpu" path="res://scripts/card_inspect_display.gd" id="5_1iatr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5h11f"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d72u"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5h11f"]
+material = SubResource("StandardMaterial3D_1d72u")
+size = Vector3(1, 1.2, 0.6)
+subdivide_width = 1
+subdivide_height = 1
+subdivide_depth = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx8n8"]
+albedo_color = Color(0.7271296, 0.4618327, 0.29770458, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5h11f"]
+material = SubResource("StandardMaterial3D_bx8n8")
+radius = 0.05
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhbaj"]
+albedo_color = Color(0.71847, 0.47161293, 0.40394953, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bx8n8"]
+material = SubResource("StandardMaterial3D_qhbaj")
+radius = 0.05
+height = 0.25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iatr"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.78431374)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h11f"]
+bg_color = Color(0.0885599, 0.0885599, 0.0885599, 0.8745098)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Main3d" type="Node3D" unique_id=1108025950]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1810852907]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=2055354303]
+mesh = SubResource("PlaneMesh_5h11f")
+
+[node name="Podium" type="MeshInstance3D" parent="." unique_id=1997428624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1)
+mesh = SubResource("BoxMesh_5h11f")
+
+[node name="PlayerHead" type="Node3D" parent="." unique_id=1294479857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+script = ExtResource("1_vjhcd")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerHead" unique_id=794186807]
+
+[node name="RightHand" type="Node3D" parent="PlayerHead" unique_id=338450940]
+script = ExtResource("2_1d72u")
+rest_position = Vector3(0.28, -0.32, -0.5)
+
+[node name="HandMesh" type="MeshInstance3D" parent="PlayerHead/RightHand" unique_id=199858781]
+transform = Transform3D(0.9659258, 0.25881904, 0, -0.23456971, 0.87542605, -0.42261827, -0.10938165, 0.4082179, 0.90630776, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_5h11f")
+
+[node name="LeftHand" type="Node3D" parent="PlayerHead" unique_id=785530566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.42, -0.5)
+
+[node name="HandMesh" type="MeshInstance3D" parent="PlayerHead/LeftHand" unique_id=493988398]
+transform = Transform3D(0.9396926, -0.34202012, 0, 0.3213938, 0.8830222, -0.34202012, 0.116977766, 0.3213938, 0.9396926, -0.25, -0.35, -0.55)
+mesh = SubResource("CapsuleMesh_bx8n8")
+
+[node name="CardFan" type="Node3D" parent="PlayerHead" unique_id=1117633657]
+script = ExtResource("3_qhbaj")
+right_hand_path = NodePath("../RightHand")
+info_display_path = NodePath("../../HUD/CardInfoPanel")
+inspect_display_path = NodePath("../../HUD/InspectPanel")
+npc_throw_target_path = NodePath("../../NPCThrowTarget")
+world_root_path = NodePath("../..")
+player_head_path = NodePath("..")
+
+[node name="NPCThrowTarget" type="Marker3D" parent="." unique_id=449389158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -3)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=448140615]
+
+[node name="CardInfoPanel" type="Panel" parent="HUD" unique_id=1317543757]
+offset_left = -24.0
+offset_top = 324.0
+offset_right = 376.0
+offset_bottom = 434.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1iatr")
+script = ExtResource("4_f3gxh")
+metadata/_edit_use_anchors_ = true
+
+[node name="CardArt" type="TextureRect" parent="HUD/CardInfoPanel" unique_id=227236126]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -75.0
+offset_right = 315.0
+offset_bottom = 55.0
+expand_mode = 3
+
+[node name="CardText" type="Label" parent="HUD/CardInfoPanel" unique_id=1972330480]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 56.0
+offset_right = 335.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "tes"
+
+[node name="HintText" type="Label" parent="HUD/CardInfoPanel" unique_id=1215558247]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 114.0
+offset_right = 340.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.38170326, 0.38170323, 0.38170323, 1)
+text = "E: Pakai Kartu   |   I: Lihat Detail"
+
+[node name="InspectPanel" type="Panel" parent="HUD" unique_id=253935248]
+offset_left = 376.0
+offset_top = 460.0
+offset_right = 776.0
+offset_bottom = 610.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+script = ExtResource("5_1iatr")
+
+[node name="InspectText" type="Label" parent="HUD/InspectPanel" unique_id=1200544108]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 384.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="InspectHint" type="Label" parent="HUD/InspectPanel" unique_id=1361536679]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 384.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+theme_override_font_sizes/font_size = 16
+text = "E: Pakai Kartu    |    I: Kembali "

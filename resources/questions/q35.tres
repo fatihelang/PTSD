@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://cjeybfkhpmpe6"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_gscw0"]
+
+[resource]
+script = ExtResource("1_gscw0")
+npc_name = "Influencer"
+question_text = "Pajak konten digital katanya mau naik, ini serius?"
+likes = Array[String](["Dialog"])
+dislikes = Array[String](["Pajak"])
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

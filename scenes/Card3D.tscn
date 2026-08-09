@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://tugx5eot0bdl"]
+
+[ext_resource type="Script" uid="uid://uo2rwih4wqj3" path="res://scenes/card_3d.gd" id="1_6a3dy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1lqj"]
+albedo_color = Color(3.080368e-06, 0.6823856, 0.8869022, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j1lqj"]
+material = SubResource("StandardMaterial3D_j1lqj")
+size = Vector3(0.18, 0.26, 0.008)
+
+[node name="Card3d" type="Node3D" unique_id=2005677565]
+script = ExtResource("1_6a3dy")
+
+[node name="CardMesh" type="MeshInstance3D" parent="." unique_id=644604218]
+mesh = SubResource("BoxMesh_j1lqj")
+
+[node name="CardText" type="Label3D" parent="." unique_id=1233325590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004)

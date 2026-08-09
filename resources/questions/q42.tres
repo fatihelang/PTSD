@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dmjpy3ys02nyj"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_ko741"]
+
+[resource]
+script = ExtResource("1_ko741")
+npc_name = "Penyandang Disabilitas"
+question_text = "Fasilitas publik masih banyak yang nggak ramah difabel."
+likes = Array[String](["Transparansi", "Dialog"])
+dislikes = Array[String](["Evaluasi"])
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dhfxwslfbslwx"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_tqona"]
+
+[resource]
+script = ExtResource("1_tqona")
+card_name = "Sorry ye"
+trust_effect = -8
+reputation_effect = -4
+tag = "Meremehkan"
+metadata/_custom_type_script = "uid://buwukmvvf4pck"

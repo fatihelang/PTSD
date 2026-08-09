@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c6jj4efxt7i2t"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_1jing"]
+
+[resource]
+script = ExtResource("1_1jing")
+card_name = "Sektor itu biar diurus oleh TNI!"
+trust_effect = -10
+reputation_effect = -10
+tag = "Nasionalisasi"
+metadata/_custom_type_script = "uid://buwukmvvf4pck"

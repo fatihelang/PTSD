@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://viex3l2will4"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_71rnr"]
+
+[resource]
+script = ExtResource("1_71rnr")
+npc_name = "Lansia"
+question_text = "Bantuan bulan ini belum cair, saya cuma makan seadanya."
+likes = Array[String](["Bansos", "Maaf"])
+dislikes = Array[String](["Tunda"])
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

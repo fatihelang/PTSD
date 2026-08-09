@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://081ki2s80biq"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_oqyd3"]
+
+[resource]
+script = ExtResource("1_oqyd3")
+npc_name = "Guru Honorer"
+question_text = "Gaji kami di bawah UMR, padahal ngajar generasi bangsa."
+likes = Array[String](["Subsidi", "Bansos"])
+dislikes = Array[String](["Evaluasi"])
+reaction_like = "Alhamdulillah, akhirnya kami dihargai, terima kasih Pak."
+reaction_dislike = "Gaji tetep di bawah standar, Pak."
+reaction_neutral = "Itu jawabannya nyambung ke gaji kami nggak sih, Pak?"
+reaction_belittled = "Kami ngajar generasi bangsa, Pak, jangan dipandang sebelah mata."
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://bkidotaspa5k8"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_rf24d"]
+
+[resource]
+script = ExtResource("1_rf24d")
+npc_name = "Buruh Tekstil"
+question_text = "Upah kami segini terus, sementara harga naik semua."
+likes = Array[String](["Bansos", "Pajak"])
+dislikes = Array[String](["Deregulasi"])
+reaction_like = "Alhamdulillah upah kami mendingan sekarang, Pak."
+reaction_dislike = "Yah, gaji tetep gitu-gitu aja, Pak."
+reaction_neutral = "Lah kok jawabannya beda topik, Pak? Saya nanya soal upah."
+reaction_belittled = "Kami kerja keras tiap hari, jangan diremehin gitu, Pak."
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://b0kywv6la68ps"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_ljcl1"]
+
+[resource]
+script = ExtResource("1_ljcl1")
+ending_title = "Epic Ending"
+ending_text = "Anjay"
+min_trust = 67
+min_reputation = 67
+metadata/_custom_type_script = "uid://b5l2cpoi04p2w"

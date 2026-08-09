@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bjlt5fv3wwaia"]
+
+[ext_resource type="Script" uid="uid://cnyl8ss0llkk8" path="res://scenes/main.gd" id="1_elqb8"]
+
+[node name="Main" type="Control" unique_id=692650799]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_elqb8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=418570404]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NPCInfo" type="HBoxContainer" parent="VBoxContainer" unique_id=419323999]
+layout_mode = 2
+
+[node name="NPCNameLabel" type="Label" parent="VBoxContainer/NPCInfo" unique_id=1590769741]
+layout_mode = 2
+
+[node name="QuestionLabel" type="Label" parent="VBoxContainer" unique_id=2003969094]
+layout_mode = 2
+
+[node name="ReactionLabel" type="Label" parent="VBoxContainer" unique_id=1293603143]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="ProgressBars" type="HBoxContainer" parent="VBoxContainer" unique_id=1682416000]
+layout_mode = 2
+
+[node name="TrustBox" type="VBoxContainer" parent="VBoxContainer/ProgressBars" unique_id=1579508983]
+layout_mode = 2
+
+[node name="TrustBar" type="ProgressBar" parent="VBoxContainer/ProgressBars/TrustBox" unique_id=1642616784]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+
+[node name="RepBox" type="VBoxContainer" parent="VBoxContainer/ProgressBars" unique_id=1120674190]
+layout_mode = 2
+
+[node name="RepBar" type="ProgressBar" parent="VBoxContainer/ProgressBars/RepBox" unique_id=142540278]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+
+[node name="CardContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=744920591]
+layout_mode = 2
+
+[node name="EndingLabel" type="Label" parent="." unique_id=597461824]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

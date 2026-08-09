@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://jydsgn2mofew"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_780yu"]
+
+[resource]
+script = ExtResource("1_780yu")
+npc_name = "Diplomat Kedutaan AS"
+question_text = "Mitra dagang kami butuh sinyal jelas soal iklim investasi."
+likes = Array[String](["Investasi", "Dialog"])
+dislikes = Array[String](["Nasionalisasi"])
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

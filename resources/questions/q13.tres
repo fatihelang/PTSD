@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://iv6svuhemgf7"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_pbl4r"]
+
+[resource]
+script = ExtResource("1_pbl4r")
+npc_name = "Dokter Puskesmas"
+question_text = "Alat medis di sini masih zaman majapahit, Pak."
+likes = Array[String](["Investasi", "Subsidi"])
+dislikes = Array[String](["Evaluasi"])
+reaction_like = "Alat medis kami mulai update, terima kasih Pak."
+reaction_dislike = "Alatnya tetep aja jadul, Pak, kasihan pasien."
+reaction_neutral = "Pak, saya tanya alat medis kok jawabnya ke mana-mana?"
+reaction_belittled = "Kami taruhan nyawa pasien tiap hari, Pak, jangan disepelein."
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

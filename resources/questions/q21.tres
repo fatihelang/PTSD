@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://cbxo7srjhq681"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_hix00"]
+
+[resource]
+script = ExtResource("1_hix00")
+npc_name = "Anggota Polisi Muda"
+question_text = "Katanya reformasi kepolisian, tapi anggaran kok gak nambah."
+likes = Array[String](["Investasi", "Transparansi"])
+dislikes = Array[String](["Tunda"])
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

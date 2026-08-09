@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dsfl4jsolut7d"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_275uy"]
+
+[resource]
+script = ExtResource("1_275uy")
+card_name = "Saya akan buka ruang dialog seluas-luasnya"
+trust_effect = -6
+reputation_effect = 6
+tag = "Dialog"
+metadata/_custom_type_script = "uid://buwukmvvf4pck"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dt83qedkvyd1o"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_cb1xa"]
+
+[resource]
+script = ExtResource("1_cb1xa")
+card_name = "Bantuan sosial akan saya perbesar"
+trust_effect = 10
+reputation_effect = -5
+tag = "Bansos"
+metadata/_custom_type_script = "uid://buwukmvvf4pck"

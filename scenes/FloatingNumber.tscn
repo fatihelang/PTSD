@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://chxorwf6rc8oc"]
+
+[ext_resource type="Script" uid="uid://br88exw40c45q" path="res://scripts/floating_number.gd" id="1_67gus"]
+
+[node name="FloatingNumber" type="Control" unique_id=475365151]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_67gus")
+
+[node name="ValueText" type="Label" parent="." unique_id=1964863753]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24

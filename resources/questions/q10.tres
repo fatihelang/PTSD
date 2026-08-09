@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://ciqcwrdyoidkd"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_bm4eu"]
+
+[resource]
+script = ExtResource("1_bm4eu")
+npc_name = "Mahasiswa Rantau"
+question_text = "Uang kuliah naik tiap tahun, orang tua saya pusing mikirinnya."
+likes = Array[String](["Subsidi", "Dialog"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Alhamdulillah, biaya kuliah jadi ringan, Pak!"
+reaction_dislike = "UKT tetep mahal aja, Pak, kasihan ortu saya."
+reaction_neutral = "Pak, saya nanya UKT kok jawabnya ngalor-ngidul gitu?"
+reaction_belittled = "Pendidikan itu hak, Pak, jangan dianggap gak penting!"
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"

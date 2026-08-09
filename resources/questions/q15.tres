@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://3aalrrricowv"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_ixksj"]
+
+[resource]
+script = ExtResource("1_ixksj")
+npc_name = "Buruh Tambang"
+question_text = "Kalau tambang ditutup, kami makan apa?"
+likes = Array[String](["Investasi", "Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "YES, kami masih ada kepastian kerja."
+reaction_dislike = "Kami mau makan apa, Pak?
+"
+metadata/_custom_type_script = "uid://bbna8cds2e0bn"
