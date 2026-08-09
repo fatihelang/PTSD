@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bpd72ij4xbqq2"
+
+[deps]
+
+files=["res://import_data/cards.Card Name.translation", "res://import_data/cards.Tag.translation", "res://import_data/cards.Trust Effect.translation", "res://import_data/cards.Trauma Effect.translation"]
+
+source_file="res://import_data/cards.csv"
+dest_files=["res://import_data/cards.Card Name.translation", "res://import_data/cards.Tag.translation", "res://import_data/cards.Trust Effect.translation", "res://import_data/cards.Trauma Effect.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

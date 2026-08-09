@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://ctef37yvqnjee"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_ex7ls"]
+
+[resource]
+script = ExtResource("1_ex7ls")
+npc_name = "TerMul"
+question_text = "Makasih makanan gratisnya yak!"
+disposition = "Supporter"
+reaction_like = "MAKASIH PAK PRESIDEN THE BEST!! 🔥🔥"
+reaction_dislike = "Eh tapi tetep dukung Bapak kok, hehe."
+reaction_neutral = "Eh? Ya gapapa deh Pak, yang penting Bapak baik."
+reaction_belittled = "Wah kok gitu sih Pak, tapi tetep dukung deh hehe."

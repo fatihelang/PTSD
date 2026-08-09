@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://b8rkog77arac2"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_p1fk4"]
+
+[resource]
+script = ExtResource("1_p1fk4")
+npc_name = "Buruh Tambang"
+question_text = "Kalau tambang ditutup, kami makan apa?"
+likes = Array[String](["Investasi", "Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Untung masih ada kepastian kerja, Pak."
+reaction_dislike = "Tambang ditutup, kami mau makan apa, Pak?"
+reaction_neutral = "Pak, saya tanya nasib tambang kok jawabnya beda arah?"
+reaction_belittled = "Ini soal periuk nasi keluarga kami, Pak, jangan disepelein."

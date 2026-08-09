@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dy37pttl44573"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_rlu0c"]
+
+[resource]
+script = ExtResource("1_rlu0c")
+npc_name = "Tokoh Agama"
+question_text = "Umat butuh ketenangan, bukan kebijakan yang bikin gaduh."
+likes = Array[String](["Dialog", "Maaf"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Terima kasih Pak, umat jadi lebih tenang."
+reaction_dislike = "Kebijakannya malah bikin gaduh terus, Pak."
+reaction_neutral = "Kok jawabannya bikin tambah bingung ya, Pak, bukannya tenang."
+reaction_belittled = "Ketenangan umat itu penting, Pak, jangan dianggap sepele."

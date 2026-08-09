@@ -37,13 +37,13 @@ func _on_question_shown(question: QuestionData, hand: Array) -> void:
 	card_fan.show_hand(hand)
 
 
-func _on_npc_reacted(text: String) -> void:
-	npc_controller.show_reaction(text)
+func _on_npc_reacted(text: String, category: String) -> void:
+	npc_controller.show_reaction(text, category)
 	await get_tree().create_timer(reaction_display_seconds).timeout
 	GameManager.advance_to_next_question()
 
 
-func _on_game_ended(final_trust: int, final_trauma: int) -> void:
+func _on_game_ended(_final_trust: int, _final_trauma: int) -> void:
 	npc_controller.hide_bubble()
 	var ending: EndingData = GameManager.get_matching_ending()
 	if ending:

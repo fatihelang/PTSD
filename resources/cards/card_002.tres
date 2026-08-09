@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cektw0lsglwrj"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_sgcnw"]
+
+[resource]
+script = ExtResource("1_sgcnw")
+card_name = "Anggaran akan saya tinjau ulang"
+trust_effect = 3
+trauma_effect = -3
+tag = "Evaluasi"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://ujsfjx5j44nj"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_nq4id"]
+
+[resource]
+script = ExtResource("1_nq4id")
+npc_name = "Penyandang Disabilitas"
+question_text = "Fasilitas publik masih banyak yang nggak ramah difabel."
+likes = Array[String](["Transparansi", "Dialog"])
+dislikes = Array[String](["Evaluasi"])
+reaction_like = "Akhirnya fasilitas jadi lebih ramah difabel, Pak."
+reaction_dislike = "Fasilitas tetep gak ramah difabel, Pak."
+reaction_neutral = "Pak, itu ada hubungannya sama fasilitas difabel kami nggak?"
+reaction_belittled = "Kami juga warga negara, Pak, jangan dipandang sebelah mata."

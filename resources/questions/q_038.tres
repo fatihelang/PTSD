@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://b3jvvnej63i4g"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_7r4q6"]
+
+[resource]
+script = ExtResource("1_7r4q6")
+npc_name = "Warga Overtourism"
+question_text = "Air kami habis buat vila turis, warga lokal kebagian apa?"
+likes = Array[String](["Evaluasi", "Transparansi"])
+dislikes = Array[String](["Investasi"])
+reaction_like = "Akhirnya air kami cukup lagi, Pak."
+reaction_dislike = "Air kami tetep habis buat vila turis, Pak."
+reaction_neutral = "Itu jawabannya nyambung ke air kami nggak, Pak?"
+reaction_belittled = "Kami warga lokal juga butuh air, Pak, jangan dilupain."

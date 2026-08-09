@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dltqx3e18a55l"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_q3f0l"]
+
+[resource]
+script = ExtResource("1_q3f0l")
+npc_name = "Ketua Serikat Pekerja"
+question_text = "Upah minimum kita kalah jauh dari inflasi tahun ini."
+likes = Array[String](["Pajak", "Bansos"])
+dislikes = Array[String](["Deregulasi"])
+reaction_like = "Akhirnya upah kami naik sesuai inflasi, Pak."
+reaction_dislike = "Upah tetep kalah sama inflasi, Pak."
+reaction_neutral = "Jawaban ini kurang relevan dengan tuntutan upah kami, Pak."
+reaction_belittled = "Buruh ini tulang punggung ekonomi, Pak, jangan dianggap remeh."

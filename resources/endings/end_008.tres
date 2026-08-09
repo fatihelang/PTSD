@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://d0opx614apd3w"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_ti2gf"]
+
+[resource]
+script = ExtResource("1_ti2gf")
+ending_title = "Diplomat Ulung"
+ending_text = "Negara berjalan dengan trauma yang terkendali, Presiden jadi tamu kehormatan di forum dunia, meski di kampung sendiri banyak yang menganggapnya lebih sibuk ke luar negeri."
+min_trust = 34
+max_trust = 66
+max_trauma = 33

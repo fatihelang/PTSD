@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://demh7yqd7cq7d"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_ybkie"]
+
+[resource]
+script = ExtResource("1_ybkie")
+npc_name = "Warga Konflik Daerah"
+question_text = "Kapan kami bisa hidup tenang tanpa takut baku tembak?"
+likes = Array[String](["Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Akhirnya daerah kami mulai tenang, Pak."
+reaction_dislike = "Baku tembak masih aja terjadi, Pak."
+reaction_neutral = "Pak, saya tanya soal keamanan kok jawabnya ke arah lain?"
+reaction_belittled = "Kami cuma mau hidup tenang, Pak, jangan dianggap remeh."

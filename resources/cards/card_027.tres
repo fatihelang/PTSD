@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://q364u3qkypd6"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_r4los"]
+
+[resource]
+script = ExtResource("1_r4los")
+card_name = "Nyenyenye, aku ga mikir itu"
+trust_effect = -15
+trauma_effect = 10
+tag = "Meremehkan"

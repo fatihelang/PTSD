@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b62trnm4l5vuv"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_rcvfj"]
+
+[resource]
+script = ExtResource("1_rcvfj")
+card_name = "Sektor ini akan saya ambil alih demi rakyat"
+trust_effect = 10
+trauma_effect = 10
+tag = "Nasionalisasi"

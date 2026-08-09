@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://d17fxxy2sdrje"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_bfhmf"]
+
+[resource]
+script = ExtResource("1_bfhmf")
+npc_name = "CEO Tambang"
+question_text = "Regulasi lingkungan kita terlalu ketat dibanding negara lain."
+likes = Array[String](["Deregulasi", "Investasi"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Regulasi jadi lebih ramah usaha, terima kasih Pak."
+reaction_dislike = "Regulasi tetep ketat, Pak, kita kalah saing."
+reaction_neutral = "Jawaban ini tidak sepenuhnya menjawab soal regulasi kami, Pak."
+reaction_belittled = "Industri ini nyumbang besar ke negara, Pak, jangan dianggap enteng."

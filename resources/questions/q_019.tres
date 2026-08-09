@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dk30lr0yh23gd"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_7ci76"]
+
+[resource]
+script = ExtResource("1_7ci76")
+npc_name = "Veteran TNI"
+question_text = "Dulu kami berjuang buat negara, sekarang pensiun kami telat cair."
+likes = Array[String](["Subsidi", "Maaf"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Terima kasih Pak, pensiun kami akhirnya lancar."
+reaction_dislike = "Pensiun tetep telat cair, Pak, gimana ini."
+reaction_neutral = "Lah, saya nanya pensiun kok jawabnya beda topik, Pak?"
+reaction_belittled = "Kami dulu berjuang buat negara, Pak, jangan dilupain gini."

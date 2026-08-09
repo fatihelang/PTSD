@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://br88b86qtlat0"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_kkwdq"]
+
+[resource]
+script = ExtResource("1_kkwdq")
+npc_name = "Ibu Rumah Tangga"
+question_text = "Harga cabai sama minyak goreng naik terus, kasihan dapur kami."
+likes = Array[String](["Subsidi", "Bansos"])
+dislikes = Array[String](["Impor"])
+reaction_like = "Wah, akhirnya harga cabai mulai turun, Pak!"
+reaction_dislike = "Harga tetep aja naik terus, Pak, kasihan dapur kami."
+reaction_neutral = "Lah kok jawabannya gak nyambung ya, Pak? Saya nanya harga cabai."
+reaction_belittled = "Dapur ini nyawa keluarga, Pak, jangan dianggap sepele."

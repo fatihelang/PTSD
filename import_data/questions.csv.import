@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dghdbkq4gj658"
+
+[deps]
+
+files=["res://import_data/questions.NPC Name.translation", "res://import_data/questions.Question Text.translation", "res://import_data/questions.Likes.translation", "res://import_data/questions.Dislikes.translation", "res://import_data/questions.Fixed Reaction.translation", "res://import_data/questions.Reaction Like.translation", "res://import_data/questions.Reaction Dislike.translation", "res://import_data/questions.Reaction Neutral.translation", "res://import_data/questions.Reaction Belittled.translation"]
+
+source_file="res://import_data/questions.csv"
+dest_files=["res://import_data/questions.NPC Name.translation", "res://import_data/questions.Question Text.translation", "res://import_data/questions.Likes.translation", "res://import_data/questions.Dislikes.translation", "res://import_data/questions.Fixed Reaction.translation", "res://import_data/questions.Reaction Like.translation", "res://import_data/questions.Reaction Dislike.translation", "res://import_data/questions.Reaction Neutral.translation", "res://import_data/questions.Reaction Belittled.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

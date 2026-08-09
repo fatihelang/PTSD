@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://djdwe6i80am2u"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_bgskg"]
+
+[resource]
+script = ExtResource("1_bgskg")
+npc_name = "Aktivis HAM"
+question_text = "Kasus pelanggaran HAM lama belum juga dituntaskan."
+likes = Array[String](["Transparansi", "Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Kasus HAM mulai dituntaskan, terima kasih Pak."
+reaction_dislike = "Kasus lama tetep aja mandek, Pak."
+reaction_neutral = "Pak, itu nyambungnya ke kasus HAM kami di mana?"
+reaction_belittled = "Korban pelanggaran HAM ini manusia, Pak, jangan diremehin."

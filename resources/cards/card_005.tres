@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c57tusv0m83fu"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_l6yia"]
+
+[resource]
+script = ExtResource("1_l6yia")
+card_name = "Saya mohon maaf atas kelalaian ini"
+trust_effect = 6
+trauma_effect = 2
+tag = "Maaf"

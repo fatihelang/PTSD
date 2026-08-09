@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://csl75rgcut7ve"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_6x1ak"]
+
+[resource]
+script = ExtResource("1_6x1ak")
+npc_name = "Konsultan Dagang"
+question_text = "Kerja sama dagang kita harus saling menguntungkan, bukan janji."
+likes = Array[String](["Investasi", "Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Kerja sama ini akhirnya saling menguntungkan, Pak."
+reaction_dislike = "Tetep aja kami yang dirugikan, Pak, bukan janji lagi."
+reaction_neutral = "Jawaban ini belum menjawab soal kerja sama dagang kami, Pak."
+reaction_belittled = "Kerja sama dagang ini serius, Pak, bukan basa-basi."

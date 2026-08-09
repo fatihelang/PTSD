@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://ddgqsqtnd1m5i"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_jmb2v"]
+
+[resource]
+script = ExtResource("1_jmb2v")
+ending_title = "Dicintai Rakyat"
+ending_text = "Rakyat mencintai Presiden apa adanya. Negara relatif tenang dan minim luka, meski capaiannya tidak istimewa-istimewa amat."
+min_trust = 67
+min_trauma = 34
+max_trauma = 66

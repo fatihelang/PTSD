@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://letee3yy4sl3"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_ma8bn"]
+
+[resource]
+script = ExtResource("1_ma8bn")
+npc_name = "Pengungsi Ilegal"
+question_text = "Kami mau tinggal disini!"
+disposition = "Hater"
+reaction_like = "MAKASIH BANGET PAK, SAYA CINTA NEGARA INI!!"
+reaction_dislike = "APA-APAAN INI PAK, SAYA MAU TINGGAL DI SINI!!"
+reaction_neutral = "Hah? Itu jawabannya soal apa? Saya cuma mau tinggal di sini!"
+reaction_belittled = "SAYA GAK TERIMA DIREMEHIN GINI, PAK!!"

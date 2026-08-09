@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b2y4f6b7l3bqk"
+
+[deps]
+
+files=["res://import_data/endings.Ending Title.translation", "res://import_data/endings.Ending Text.translation", "res://import_data/endings.Min Trust.translation", "res://import_data/endings.Max Trust.translation", "res://import_data/endings.Min Trauma.translation", "res://import_data/endings.Max Trauma.translation"]
+
+source_file="res://import_data/endings.csv"
+dest_files=["res://import_data/endings.Ending Title.translation", "res://import_data/endings.Ending Text.translation", "res://import_data/endings.Min Trust.translation", "res://import_data/endings.Max Trust.translation", "res://import_data/endings.Min Trauma.translation", "res://import_data/endings.Max Trauma.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dqglclts6vakl"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_e0t02"]
+
+[resource]
+script = ExtResource("1_e0t02")
+npc_name = "Jurnalis Investigasi"
+question_text = "Data yang saya minta selalu 'masih diproses', ini kenapa?"
+likes = Array[String](["Transparansi"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Data kami akhirnya dibuka, terima kasih Pak."
+reaction_dislike = "Data tetep aja 'masih diproses', Pak, klasik."
+reaction_neutral = "Saya minta data kok malah dijawab hal lain, Pak?"
+reaction_belittled = "Jurnalisme ini pilar demokrasi, Pak, jangan disepelein."

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cogktsxsifncr"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_ywflh"]
+
+[resource]
+script = ExtResource("1_ywflh")
+card_name = "saya akan lakukan audit independen"
+trust_effect = 6
+trauma_effect = -6
+tag = "Transparansi"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dkam08yqrtpa0"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_aj3a0"]
+
+[resource]
+script = ExtResource("1_aj3a0")
+npc_name = "Pengusaha Ekspor Sawit"
+question_text = "Uni Eropa mempersulit ekspor sawit kita terus."
+likes = Array[String](["Ekspor", "Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Ekspor sawit kita makin lancar, terima kasih Pak."
+reaction_dislike = "Uni Eropa makin ketat aja, Pak, kita rugi."
+reaction_neutral = "Pak, itu jawabannya nyambung ke Uni Eropa nggak sih?"
+reaction_belittled = "Sawit ini andalan ekspor kita, Pak, jangan dipandang enteng."

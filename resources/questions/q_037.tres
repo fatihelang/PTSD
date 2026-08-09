@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://wqsa5vausfjb"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_xh00k"]
+
+[resource]
+script = ExtResource("1_xh00k")
+npc_name = "Pengusaha Pariwisata"
+question_text = "Turis makin sepi gara-gara isu keamanan yang dibesar-besarkan."
+likes = Array[String](["Investasi", "Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Turis mulai rame lagi, terima kasih Pak!"
+reaction_dislike = "Isu keamanan tetep bikin turis kabur, Pak."
+reaction_neutral = "Pak, saya tanya soal turis kok jawabnya beda topik?"
+reaction_belittled = "Pariwisata ini nafas ekonomi daerah, Pak, jangan diremehin."

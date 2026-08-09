@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://26sbaw3dwdbm"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_ksl4t"]
+
+[resource]
+script = ExtResource("1_ksl4t")
+npc_name = "Anggota DPR Koalisi"
+question_text = "Kebijakan Bapak sudah baik, tinggal kita kawal bersama."
+disposition = "Supporter"
+reaction_like = "Betul Pak, kita kawal bersama terus!"
+reaction_dislike = "Lah, kok gini sih Pak, padahal kita udah dukung."
+reaction_neutral = "Eh, itu jawabannya soal apa ya Pak? Tapi santai, tetep dukung."
+reaction_belittled = "Kami koalisi setia, Pak, masa gini balesannya."

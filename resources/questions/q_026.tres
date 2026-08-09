@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://vp5jqs7pax3e"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_n0kod"]
+
+[resource]
+script = ExtResource("1_n0kod")
+npc_name = "Tokoh Adat"
+question_text = "Tanah adat kami dipakai proyek tanpa tanya kami dulu."
+likes = Array[String](["Dialog", "Transparansi"])
+dislikes = Array[String](["Nasionalisasi"])
+reaction_like = "Terima kasih Pak, tanah adat kami dihormati."
+reaction_dislike = "Tanah kami tetep dipakai seenaknya, Pak."
+reaction_neutral = "Itu nyambung ke tanah adat kami nggak, Pak?"
+reaction_belittled = "Tanah ini identitas leluhur kami, Pak, jangan diinjak-injak."

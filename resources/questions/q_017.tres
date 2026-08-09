@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dgh8strh6qq3q"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_njo4y"]
+
+[resource]
+script = ExtResource("1_njo4y")
+npc_name = "Warga Banjir "
+question_text = "Rumah saya kebanjiran tiap tahun, solusinya cuma janji."
+likes = Array[String](["Evaluasi", "Bansos"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Akhirnya rumah kami gak kebanjiran lagi, Pak."
+reaction_dislike = "Musim hujan nanti pasti banjir lagi, Pak."
+reaction_neutral = "Pak, saya tanya banjir kok jawabnya ke urusan lain?"
+reaction_belittled = "Rumah kami udah rusak bertahun-tahun, Pak, jangan diremehin."

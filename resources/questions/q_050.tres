@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://c3u161k7pgcgd"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_vj812"]
+
+[resource]
+script = ExtResource("1_vj812")
+npc_name = "Netizen"
+question_text = "Ini serius Pak jawabannya? Rakyat nunggu solusi bukan drama."
+disposition = "Hater"
+reaction_like = "Nah gini nih baru presiden becus, respect Pak. 👍"
+reaction_dislike = "Ini beneran Pak jawabannya? Gak niat banget dah. 🙄"
+reaction_neutral = "Lah Pak ini jawabannya nyambung ke pertanyaan gak sih? 🤨"
+reaction_belittled = "WOW OKE SIP, RAKYAT EMANG PANTES DIREMEHKAN YA PAK? 🤡"

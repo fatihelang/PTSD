@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://31dsmonjtbpy"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_1d2ue"]
+
+[resource]
+script = ExtResource("1_1d2ue")
+card_name = "Regulasi akan saya permudah untuk pengusaha"
+trust_effect = -6
+trauma_effect = -8
+tag = "Deregulasi"

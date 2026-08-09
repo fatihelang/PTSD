@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://c1y7gvw7ud73e"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_fsk67"]
+
+[resource]
+script = ExtResource("1_fsk67")
+npc_name = "Petani Sawit Kecil"
+question_text = "Harga TBS anjlok, tengkulak yang untung."
+likes = Array[String](["Subsidi"])
+dislikes = Array[String](["Deregulasi"])
+reaction_like = "Untung juga harga TBS mulai naik, Pak."
+reaction_dislike = "Harga TBS tetep anjlok, Pak, tengkulak yang untung."
+reaction_neutral = "Lah, saya tanya harga TBS kok jawabnya beda arah, Pak?"
+reaction_belittled = "Kami petani kecil, Pak, jangan dianggap gak penting."

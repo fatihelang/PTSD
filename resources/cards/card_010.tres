@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c7fg67p1wkqqa"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_r1stw"]
+
+[resource]
+script = ExtResource("1_r1stw")
+card_name = "Investor akan saya beri insentif pajak"
+trust_effect = -8
+trauma_effect = -8
+tag = "Investasi"

@@ -25,7 +25,7 @@ signal stats_changed(trust: int, trauma: int)
 signal stats_delta(trust_delta: int, trauma_delta: int)
 signal new_question_shown(question: QuestionData, hand: Array)
 signal card_chosen(card: CardData)
-signal npc_reacted(reaction_text: String)
+signal npc_reacted(reaction_text: String, reaction_category: String)
 signal game_ended(final_trust: int, final_trauma: int)
 
 # back up kalau semisal belum tak input di resource
@@ -235,7 +235,7 @@ func choose_card(chosen_card: CardData) -> void:
 
 	card_chosen.emit(chosen_card)
 	stats_changed.emit(trust, trauma)
-	npc_reacted.emit(reaction_text)
+	npc_reacted.emit(reaction_text, category)
 
 
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b2eiefngepppu"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_ji8h3"]
+
+[resource]
+script = ExtResource("1_ji8h3")
+card_name = "Pajak orang kaya akan saya naikkan"
+trust_effect = 7
+trauma_effect = 3
+tag = "Pajak"

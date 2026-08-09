@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dxsltqbrwe02a"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_2sqj4"]
+
+[resource]
+script = ExtResource("1_2sqj4")
+npc_name = "Pekerja Lepas"
+question_text = "Kami nggak punya jaminan sosial sama sekali."
+likes = Array[String](["Bansos", "Dialog"])
+dislikes = Array[String](["Evaluasi"])
+reaction_like = "Untung juga ada jaminan sosial sekarang, Pak."
+reaction_dislike = "Kami tetep gak punya jaminan apa-apa, Pak."
+reaction_neutral = "Pak, saya tanya jaminan sosial kok jawabnya ke lain hal?"
+reaction_belittled = "Kami kerja keras tanpa perlindungan, Pak, jangan diremehin."

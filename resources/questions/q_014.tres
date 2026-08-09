@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dl50to5tjdss8"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_tmp43"]
+
+[resource]
+script = ExtResource("1_tmp43")
+npc_name = "Perawat Rumah Sakit"
+question_text = "Kami lembur terus tapi insentif malah dipotong."
+likes = Array[String](["Bansos", "Maaf"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Untung juga insentif kami balik normal, Pak."
+reaction_dislike = "Insentif tetep dipotong, Pak, kami capek."
+reaction_neutral = "Lah... itu jawabannya soal apa, Pak? Saya nanya insentif kami."
+reaction_belittled = "Kami lembur demi pasien, Pak, jangan diremehin gitu."

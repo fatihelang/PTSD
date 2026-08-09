@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://bdtmbyuytka2p"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_61em7"]
+
+[resource]
+script = ExtResource("1_61em7")
+npc_name = "Perwira Aktif"
+question_text = "Senjata kita ketinggalan, tetangga makin canggih."
+likes = Array[String](["Investasi"])
+dislikes = Array[String](["Evaluasi"])
+reaction_like = "Alutsista kita jadi makin siap, mantap Pak!"
+reaction_dislike = "Alutsista kita tetep ketinggalan, Pak."
+reaction_neutral = "Pak, itu ada hubungannya sama alutsista kami nggak?"
+reaction_belittled = "Pertahanan negara ini serius, Pak, jangan dianggap remeh."

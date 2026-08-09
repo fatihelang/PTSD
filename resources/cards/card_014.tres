@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dg52q8scxnhj3"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_03wn7"]
+
+[resource]
+script = ExtResource("1_03wn7")
+card_name = "Bansos akan saya salurkan tepat sasaran"
+trust_effect = 6
+trauma_effect = -2
+tag = "Bansos"

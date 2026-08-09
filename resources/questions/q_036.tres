@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://chmtw4wrqndah"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_vceop"]
+
+[resource]
+script = ExtResource("1_vceop")
+npc_name = "Investor Kripto"
+question_text = "Regulasi kripto kita masih abu-abu, investor pada kabur."
+likes = Array[String](["Transparansi", "Deregulasi"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Regulasi kripto jadi lebih jelas, terima kasih Pak."
+reaction_dislike = "Investor kripto makin kabur aja, Pak."
+reaction_neutral = "Ini nyambung ke regulasi kripto kami nggak sih, Pak?"
+reaction_belittled = "Industri ini masa depan, Pak, jangan dipandang sebelah mata."

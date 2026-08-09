@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://ds2hexq60u21e"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_nyejp"]
+
+[resource]
+script = ExtResource("1_nyejp")
+npc_name = "Lansia"
+question_text = "Bantuan bulan ini belum cair, saya cuma makan seadanya."
+likes = Array[String](["Bansos", "Maaf"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Untung juga bantuan saya udah cair, Pak."
+reaction_dislike = "Bantuan tetep belum cair, Pak, saya makan seadanya."
+reaction_neutral = "Itu jawabannya soal apa ya, Pak? Saya nanya bantuan saya."
+reaction_belittled = "Saya udah tua, Pak, tolong jangan dianggap gak penting."

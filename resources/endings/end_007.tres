@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://dbxpxxmw2y18r"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_l6q8g"]
+
+[resource]
+script = ExtResource("1_l6q8g")
+ending_title = "Musuh Rakyat"
+ending_text = "Negara nyaris tanpa trauma di atas kertas, angka-angka ekonomi terlihat mengilap. Sayangnya, rakyat di dalam negeri merasa dikorbankan demi statistik yang rapi itu."
+max_trust = 33
+max_trauma = 33

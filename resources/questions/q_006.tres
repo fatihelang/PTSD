@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dsse05notiq6p"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_kqxkc"]
+
+[resource]
+script = ExtResource("1_kqxkc")
+npc_name = "Ojek Online"
+question_text = "BBM naik terus, tarif aplikasi nggak ikut naik."
+likes = Array[String](["Subsidi", "Dialog"])
+dislikes = Array[String](["Pajak"])
+reaction_like = "Legaan deh, jadi lebih tenang narik, Pak!"
+reaction_dislike = "Tarif tetep aja segitu-gitu doang, Pak."
+reaction_neutral = "Pak, saya tanya BBM kok jawabnya ke situ?"
+reaction_belittled = "Saya narik dari subuh sampai malam, jangan dianggap enteng, Pak."

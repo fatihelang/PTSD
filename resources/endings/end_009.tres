@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://0tnw55dphipk"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_0tnj4"]
+
+[resource]
+script = ExtResource("1_0tnj4")
+ending_title = "Presiden Legendaris"
+ending_text = "Dicintai rakyatnya, negara pulih dan nyaris tanpa trauma berarti. Nama Presiden dikenang sebagai salah satu pemimpin paling seimbang dalam sejarah negara ini."
+min_trust = 67
+max_trauma = 33

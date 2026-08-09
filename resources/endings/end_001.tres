@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://27gbd3768uvq"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_dn05o"]
+
+[resource]
+script = ExtResource("1_dn05o")
+ending_title = "Digulingkan dalam Semalam"
+ending_text = "Rakyat marah, negara terguncang hebat oleh trauma kolektif akibat kebijakan yang serampangan. Dalam hitungan hari, Presiden lengser lewat gelombang demonstrasi terbesar dalam sejarah."
+max_trust = 33
+min_trauma = 67

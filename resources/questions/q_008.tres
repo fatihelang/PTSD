@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://wjbfodcc2xau"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_acuc7"]
+
+[resource]
+script = ExtResource("1_acuc7")
+npc_name = "Pemilik UMKM Kuliner"
+question_text = "Izin usaha ribet banget, kapan dipermudah?"
+likes = Array[String](["Deregulasi", "Subsidi"])
+dislikes = Array[String](["Pajak"])
+reaction_like = "Wah, izinnya jadi cepat, mantap Pak!"
+reaction_dislike = "Ribetnya tetep aja sama, Pak."
+reaction_neutral = "Pak... itu jawabannya ada hubungannya sama izin usaha saya?"
+reaction_belittled = "Usaha kecil kami juga berjuang, Pak, jangan dianggap remeh."

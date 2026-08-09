@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://c630he40esskl"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_prwsd"]
+
+[resource]
+script = ExtResource("1_prwsd")
+npc_name = "Ekonom"
+question_text = "Kebijakan fiskal kita perlu berbasis data, bukan sekadar populer."
+likes = Array[String](["Transparansi", "Evaluasi"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Kebijakan berbasis data ini langkah tepat, Pak."
+reaction_dislike = "Kebijakan tetep berbasis popularitas aja, Pak."
+reaction_neutral = "Maaf Pak, jawaban ini tidak berbasis data sesuai yang kami maksud."
+reaction_belittled = "Ekonomi ini ilmu serius, Pak, bukan sekadar opini."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://crvug1ktpewav"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_mly10"]
+
+[resource]
+script = ExtResource("1_mly10")
+npc_name = "Anggota DPR Oposisi"
+question_text = "Pemerintah harus diawasi, bukan dibiarkan jalan sendiri."
+likes = Array[String](["Transparansi", "Dialog"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Baik Pak, ini langkah pengawasan yang tepat."
+reaction_dislike = "Pemerintah tetep jalan sendiri aja, Pak."
+reaction_neutral = "Jawaban ini tidak menjawab fungsi pengawasan yang kami maksud, Pak."
+reaction_belittled = "Fungsi pengawasan ini penting, Pak, jangan dianggap mengganggu."

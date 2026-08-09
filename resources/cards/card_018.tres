@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c156xo5b4pexd"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_rkjkg"]
+
+[resource]
+script = ExtResource("1_rkjkg")
+card_name = "Kita bisa impor"
+trust_effect = -10
+trauma_effect = -10
+tag = "Impor"

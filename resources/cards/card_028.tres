@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b5v6elihlcf5q"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_04m0j"]
+
+[resource]
+script = ExtResource("1_04m0j")
+card_name = "Cobalah menanam sawit"
+trust_effect = -15
+trauma_effect = 10
+tag = "Meremehkan"

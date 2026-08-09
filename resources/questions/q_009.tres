@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://c0fi3367gab8y"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_n2dof"]
+
+[resource]
+script = ExtResource("1_n2dof")
+npc_name = "Mahasiswa Aktivis BEM"
+question_text = "Kami cuma minta pemerintah jujur soal anggaran."
+likes = Array[String](["Maaf", "Transparansi"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Nah gitu dong, transparan itu penting, Pak!"
+reaction_dislike = "Ini kenapa masih ditutup-tutupi, Pak?"
+reaction_neutral = "Lah, itu jawabannya nyambung ke anggaran yang kami maksud nggak?"
+reaction_belittled = "Kami mahasiswa mikir juga, Pak, bukan cuma demo doang."

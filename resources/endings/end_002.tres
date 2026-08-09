@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://ct72bhthdfssh"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_b7vee"]
+
+[resource]
+script = ExtResource("1_b7vee")
+ending_title = "Demi Negara!"
+ending_text = "Rakyat cukup senang dengan gaya blak-blakan Presiden, tapi negara diam-diam menanggung trauma panjang: krisis kepercayaan mitra, ekonomi yang terguncang, dan luka yang belum sembuh."
+min_trust = 34
+max_trust = 66
+min_trauma = 67

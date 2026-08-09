@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bbkt3u1fex5oy"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_ysh36"]
+
+[resource]
+script = ExtResource("1_ysh36")
+card_name = "saya naikkan pajak demi anggaran negara"
+trust_effect = -6
+trauma_effect = -7
+tag = "Pajak"

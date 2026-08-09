@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://cx57xwpjgdwxm"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_78jub"]
+
+[resource]
+script = ExtResource("1_78jub")
+npc_name = "Aktivis Lingkungan"
+question_text = "Hutan digunduli demi sawit, bumi makin panas."
+likes = Array[String](["Transparansi", "Represif"])
+dislikes = Array[String](["Deregulasi"])
+reaction_like = "Bagus, hutan kita mulai diselamatkan, Pak!"
+reaction_dislike = "Hutan tetep aja digunduli, Pak, bumi makin panas."
+reaction_neutral = "Kok gak nyambung ke hutan ya, Pak? Bumi kami tetep panas."
+reaction_belittled = "Lingkungan ini rumah semua orang, Pak, jangan dianggap sepele."

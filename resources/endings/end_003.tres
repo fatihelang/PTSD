@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EndingData" format=3 uid="uid://rfxg0auh0adc"]
+
+[ext_resource type="Script" uid="uid://b5l2cpoi04p2w" path="res://scripts/ending_data.gd" id="1_wphfl"]
+
+[resource]
+script = ExtResource("1_wphfl")
+ending_title = "Pahlawan Rakyat, Negara Terluka"
+ending_text = "Di dalam negeri, Presiden dielu-elukan sebagai pembela wong cilik. Tapi negara menanggung trauma berat: sanksi ekonomi bertubi-tubi dan luka struktural yang sulit dipulihkan."
+min_trust = 67
+min_trauma = 67

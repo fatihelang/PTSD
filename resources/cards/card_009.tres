@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b5k1qbu11fd2k"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_158g3"]
+
+[resource]
+script = ExtResource("1_158g3")
+card_name = "saya akan buka investasi asing seluas-luasnya"
+trust_effect = -6
+trauma_effect = -10
+tag = "Investasi"

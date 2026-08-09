@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://dmqpe6pmxlchg"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_c68av"]
+
+[resource]
+script = ExtResource("1_c68av")
+npc_name = "Buruh Migran"
+question_text = "Perlindungan buat kami di luar negeri masih lemah banget."
+likes = Array[String](["Dialog", "Transparansi"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Untung juga perlindungan kami membaik, Pak."
+reaction_dislike = "Perlindungan tetep lemah, Pak, kami rentan di luar negeri."
+reaction_neutral = "Kok jawabannya gak nyambung ke perlindungan kami, Pak?"
+reaction_belittled = "Nyawa kami dipertaruhkan di negeri orang, Pak, jangan diremehin."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://0raqitwx2rge"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_5t2sv"]
+
+[resource]
+script = ExtResource("1_5t2sv")
+npc_name = "Petani Kopi Ekspor"
+question_text = "Kopi kami laku di luar negeri, tapi pajaknya bikin pusing."
+likes = Array[String](["Ekspor", "Investasi"])
+dislikes = Array[String](["Pajak"])
+reaction_like = "Kopi kami makin laris, makasih Pak!"
+reaction_dislike = "Pajaknya tetep bikin pusing aja, Pak, gak nolong."
+reaction_neutral = "Kok jawabannya ke mana-mana, Pak? Saya tanya soal pajak kopi."
+reaction_belittled = "Kopi kami udah mendunia, Pak, jangan sepelein."

@@ -1,0 +1,29 @@
+ID,Card Name,Tag,Trust Effect,Trauma Effect
+card_001,Saya akan evaluasi kebijakan ini,Evaluasi,5,-2
+card_002,Anggaran akan saya tinjau ulang,Evaluasi,3,-3
+card_003,Saya tunda sampai saya niat,Tunda,-8,4
+card_004,Akan saya tunda dulu,Tunda,-5,3
+card_005,Saya mohon maaf atas kelalaian ini,Maaf,6,2
+card_006,Sorry ye,Meremehkan,-8,4
+card_007,Subsidi akan saya tambah,Subsidi,10,6
+card_008,Subsidi akan saya pangkas demi efisiensi,Subsidi,-10,-6
+card_009,saya akan buka investasi asing seluas-luasnya,Investasi,-6,-10
+card_010,Investor akan saya beri insentif pajak,Investasi,-8,-8
+card_011,Semua data akan saya buka ke publik,Transparansi,8,-4
+card_012,saya akan lakukan audit independen,Transparansi,6,-6
+card_013,Bantuan sosial akan saya perbesar,Bansos,10,5
+card_014,Bansos akan saya salurkan tepat sasaran,Bansos,6,-2
+card_015,Pajak orang kaya akan saya naikkan,Pajak,7,3
+card_016,saya naikkan pajak demi anggaran negara,Pajak,-6,-7
+card_017,Impor akan saya buka demi harga murah,Impor,-8,-6
+card_018,Kita bisa impor,Impor,-10,-10
+card_019,saya akan genjot ekspor nasional,Ekspor,2,-8
+card_020,Aparat akan saya turunkan jaga ketertiban,Represif,-10,-4
+card_021,saya akan tindak tegas siapa pun yang melanggar,Represif,-6,-6
+card_022,saya akan buka ruang dialog seluas-luasnya,Dialog,8,-2
+card_023,Mari duduk bersama mencari solusi,Dialog,6,-4
+card_024,Regulasi akan saya permudah untuk pengusaha,Deregulasi,-6,-8
+card_025,Sektor itu biar diurus oleh TNI!,Nasionalisasi,-10,10
+card_026,Sektor ini akan saya ambil alih demi rakyat,Nasionalisasi,10,10
+card_027,"Nyenyenye, aku ga mikir itu",Meremehkan,-15,10
+card_028,Cobalah menanam sawit,Meremehkan,-15,10

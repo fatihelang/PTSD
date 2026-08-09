@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://631dow43olao"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_lr2vy"]
+
+[resource]
+script = ExtResource("1_lr2vy")
+npc_name = "Warga Penggusuran"
+question_text = "Tanah kami digusur buat proyek, ganti ruginya kapan?"
+likes = Array[String](["Dialog", "Transparansi"])
+dislikes = Array[String](["Represif"])
+reaction_like = "Untung juga ganti rugi kami cair, Pak."
+reaction_dislike = "Ganti rugi gak jelas juntrungannya, Pak."
+reaction_neutral = "Itu jawabannya nyambung ke ganti rugi kami nggak, Pak?"
+reaction_belittled = "Kami kehilangan rumah, Pak, ini bukan hal kecil."

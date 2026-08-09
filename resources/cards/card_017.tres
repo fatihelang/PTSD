@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bfhgwlac38kf2"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_mplor"]
+
+[resource]
+script = ExtResource("1_mplor")
+card_name = "Impor akan saya buka demi harga murah"
+trust_effect = -8
+trauma_effect = -6
+tag = "Impor"

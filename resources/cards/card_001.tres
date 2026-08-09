@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d4gx6xlmvfgyq"]
+
+[ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_4hrsr"]
+
+[resource]
+script = ExtResource("1_4hrsr")
+card_name = "Saya akan evaluasi kebijakan ini"
+trust_effect = 5
+trauma_effect = -2
+tag = "Evaluasi"

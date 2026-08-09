@@ -26,6 +26,9 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var world_root_path: NodePath
 @export var player_head_path: NodePath
 
+@export var grab_rotation: Vector3 = Vector3(0, 0, 90)
+@export var grab_rotation_duration: float = 0.15
+
 var cards: Array = []
 var current_index: int = 0
 var input_locked: bool = true
@@ -121,6 +124,8 @@ func _handle_inspect_input(event: InputEvent) -> void:
 
 func _start_inspect() -> void:
 	if cards.is_empty():
+		right_hand.fade_in()
+		var grab_tween := create_tween()
 		return
 
 	inspect_pitch = 0.0
@@ -168,8 +173,10 @@ func _end_inspect() -> void:
 	tween.tween_property(card_to_reset, "scale", Vector3.ONE, 0.25)
 	tween.tween_property(card_to_reset, "rotation_degrees", inspected_original_rotation, 0.25)
 	tween.tween_property(right_hand, "position", right_hand.rest_position, 0.25)
+	tween.tween_property(right_hand, "rotation_degrees", Vector3.ZERO, 0.25)
 	await tween.finished
-
+	right_hand.fade_out()
+	
 	card_to_reset.set_inspected(false)
 	inspected_card = null
 	inspect_locked = false
@@ -227,8 +234,12 @@ func _play_selected_card() -> void:
 
 
 func _animate_throw(card: Node3D) -> void:
+	right_hand.fade_in()
+
 	var grab_tween := create_tween()
+	grab_tween.set_parallel(true)
 	grab_tween.tween_property(right_hand, "position", card.position, 0.2)
+	grab_tween.tween_property(right_hand, "rotation_degrees", grab_rotation, grab_rotation_duration)
 	await grab_tween.finished
 
 	card.reparent(world_root, true)
@@ -247,5 +258,9 @@ func _animate_throw(card: Node3D) -> void:
 		await get_tree().process_frame
 
 	var return_tween := create_tween()
+	return_tween.set_parallel(true)
 	return_tween.tween_property(right_hand, "position", right_hand.rest_position, 0.25)
+	return_tween.tween_property(right_hand, "rotation_degrees", Vector3.ZERO, 0.25)
 	await return_tween.finished
+
+	right_hand.fade_out()

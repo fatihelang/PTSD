@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://vwsg5e7bqlam"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_p751w"]
+
+[resource]
+script = ExtResource("1_p751w")
+npc_name = "Polisi Muda"
+question_text = "Katanya reformasi kepolisian, tapi anggaran kok gak nambah."
+likes = Array[String](["Transparansi", "Investasi"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Reformasi kepolisian mulai kerasa, terima kasih Pak."
+reaction_dislike = "Anggaran tetep gak nambah, Pak, reformasi cuma nama."
+reaction_neutral = "Kok jawabannya gak nyambung ke reformasi kepolisian, Pak?"
+reaction_belittled = "Kami di lapangan tiap hari, Pak, jangan dipandang sebelah mata."

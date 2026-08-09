@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://byep5v5n55nuy"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_7v7ih"]
+
+[resource]
+script = ExtResource("1_7v7ih")
+npc_name = "Menteri Keuangan"
+question_text = "Investor kami butuh kepastian regulasi, bukan kejutan kebijakan."
+likes = Array[String](["Investasi", "Deregulasi"])
+dislikes = Array[String](["Nasionalisasi"])
+reaction_like = "Kepastian regulasi ini yang investor butuhkan, Pak."
+reaction_dislike = "Kejutan kebijakan bikin investor kabur, Pak."
+reaction_neutral = "Maaf Pak, jawaban ini tidak menjawab soal kepastian regulasi kami."
+reaction_belittled = "Kepercayaan pasar itu mahal, Pak, jangan dianggap main-main."

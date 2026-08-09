@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://bwty7vyf38vfs"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_sfxm4"]
+
+[resource]
+script = ExtResource("1_sfxm4")
+npc_name = "Pedagang Pasar"
+question_text = "Barang impor lebih murah, lapak kami sepi pembeli."
+likes = Array[String](["Subsidi"])
+dislikes = Array[String](["Impor"])
+reaction_like = "Lapak kami mulai rame lagi, makasih Pak."
+reaction_dislike = "Barang impor tetep aja nyerbu, Pak."
+reaction_neutral = "Kok gak nyambung ya, Pak? Saya tanya soal lapak saya."
+reaction_belittled = "Dagang kecil ini nyawa keluarga saya, Pak, jangan disepelein."

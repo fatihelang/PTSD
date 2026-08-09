@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuestionData" format=3 uid="uid://do1dnq3i18jno"]
+
+[ext_resource type="Script" uid="uid://bbna8cds2e0bn" path="res://scripts/question_data.gd" id="1_kv8b3"]
+
+[resource]
+script = ExtResource("1_kv8b3")
+npc_name = "Korban Investasi Bodong"
+question_text = "Uang tabungan kami raib, pengawas ke mana aja?"
+likes = Array[String](["Transparansi", "Represif"])
+dislikes = Array[String](["Tunda"])
+reaction_like = "Untung juga ada tindakan tegas, terima kasih Pak."
+reaction_dislike = "Pengawas tetep aja gak keliatan, Pak."
+reaction_neutral = "Pak, saya tanya soal tabungan saya kok jawabnya melenceng?"
+reaction_belittled = "Tabungan seumur hidup kami raib, Pak, ini bukan hal kecil."
