@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://tugx5eot0bdl"]
 
 [ext_resource type="Script" uid="uid://uo2rwih4wqj3" path="res://scenes/card_3d.gd" id="1_6a3dy"]
+[ext_resource type="Texture2D" uid="uid://djdrjuglual0" path="res://assets/cards/card_icon_maaf.png" id="2_s7pq4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1lqj"]
-albedo_color = Color(3.080368e-06, 0.6823856, 0.8869022, 1)
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j1lqj"]
 material = SubResource("StandardMaterial3D_j1lqj")
-size = Vector3(0.18, 0.26, 0.008)
+size = Vector3(0.2, 0.29, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5h11f"]
+size = Vector3(0.18, 0.27, 0.008)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bx8n8"]
+size = Vector3(0.16, 0.25, 0.006)
 
 [node name="Card3d" type="Node3D" unique_id=2005677565]
 script = ExtResource("1_6a3dy")
@@ -15,5 +22,30 @@ script = ExtResource("1_6a3dy")
 [node name="CardMesh" type="MeshInstance3D" parent="." unique_id=644604218]
 mesh = SubResource("BoxMesh_j1lqj")
 
-[node name="CardText" type="Label3D" parent="." unique_id=1233325590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004)
+[node name="CardWhiteBorder" type="MeshInstance3D" parent="CardMesh" unique_id=2061103071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+mesh = SubResource("BoxMesh_5h11f")
+
+[node name="CardFace" type="MeshInstance3D" parent="CardMesh/CardWhiteBorder" unique_id=273352682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+mesh = SubResource("BoxMesh_bx8n8")
+
+[node name="CardIcon" type="Sprite3D" parent="CardMesh/CardWhiteBorder/CardFace" unique_id=2038565701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070137024, 0.004)
+pixel_size = 0.0002
+texture = ExtResource("2_s7pq4")
+
+[node name="CardText" type="Label3D" parent="CardMesh/CardWhiteBorder/CardFace" unique_id=1233325590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008108977, 0.004)
+pixel_size = 0.0005
+font_size = 28
+outline_size = 0
+autowrap_mode = 2
+width = 300.0
+
+[node name="CardEffectText" type="Label3D" parent="CardMesh/CardWhiteBorder/CardFace" unique_id=1376170927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.004)
+pixel_size = 0.0005
+font_size = 18
+outline_size = 4
+width = 87.0

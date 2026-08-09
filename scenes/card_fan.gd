@@ -8,26 +8,27 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var throw_arc_height: float = 0.3
 @export var throw_duration: float = 0.35
 @export var throw_spin_degrees: float = 1080.0
+@export var card_z_step: float = 0.01
 
 @export var inspect_position: Vector3 = Vector3(0.0, 0.0, -0.4)
-@export var inspect_scale: float = 1.6
-@export var inspect_rotate_speed: float = 0.3
-@export var inspect_hold_offset: Vector3 = Vector3(0.35, -0.35, 0.1)
-@export var inspect_max_pitch: float = 35.0
-@export var inspect_max_yaw: float = 60.0
+@export var inspect_scale: float = 1.8
+@export var inspect_duration: float = 0.25
+
+@export var grab_rotation: Vector3 = Vector3(0, 0, 90)
+@export var grab_rotation_duration: float = 0.15
 
 @export var npc_controller_path: NodePath
-@onready var npc_controller: Node3D = get_node(npc_controller_path)
-
 @export var right_hand_path: NodePath
-@export var info_display_path: NodePath
-@export var inspect_display_path: NodePath
 @export var npc_throw_target_path: NodePath
 @export var world_root_path: NodePath
 @export var player_head_path: NodePath
 
-@export var grab_rotation: Vector3 = Vector3(0, 0, 90)
-@export var grab_rotation_duration: float = 0.15
+@export var inspect_rotate_speed: float = 0.3
+@export var inspect_max_pitch: float = 35.0
+@export var inspect_max_yaw: float = 60.0
+
+var inspect_pitch: float = 0.0
+var inspect_yaw: float = 0.0
 
 var cards: Array = []
 var current_index: int = 0
@@ -37,12 +38,9 @@ var inspect_locked: bool = false
 var inspected_card: Node3D = null
 var inspected_original_position: Vector3 = Vector3.ZERO
 var inspected_original_rotation: Vector3 = Vector3.ZERO
-var inspect_pitch: float = 0.0
-var inspect_yaw: float = 0.0
 
+@onready var npc_controller: Node3D = get_node(npc_controller_path)
 @onready var right_hand: Node3D = get_node(right_hand_path)
-@onready var info_display: Control = get_node(info_display_path)
-@onready var inspect_display: Control = get_node(inspect_display_path)
 @onready var npc_throw_target: Node3D = get_node(npc_throw_target_path)
 @onready var world_root: Node3D = get_node(world_root_path)
 @onready var player_head: Node3D = get_node(player_head_path)
@@ -50,7 +48,6 @@ var inspect_yaw: float = 0.0
 
 func _ready() -> void:
 	input_locked = true
-
 
 
 func show_hand(hand: Array) -> void:
@@ -79,7 +76,7 @@ func _spawn_fan(hand: Array) -> void:
 
 		var x = base_position.x + sin(angle_rad) * radius
 		var y = base_position.y - (1.0 - cos(angle_rad)) * radius * 0.6
-		var z = base_position.z
+		var z = base_position.z + i * card_z_step
 
 		card.set_base_position(Vector3(x, y, z))
 		card.rotation_degrees = Vector3(0, 0, -angle_deg)
@@ -122,15 +119,20 @@ func _handle_inspect_input(event: InputEvent) -> void:
 		_confirm_while_inspecting()
 
 
+func _update_selection_visual() -> void:
+	if cards.is_empty():
+		return
+	if current_index >= cards.size():
+		current_index = cards.size() - 1
+	for i in range(cards.size()):
+		cards[i].set_current(i == current_index)
+
+
 func _start_inspect() -> void:
 	if cards.is_empty():
-		right_hand.fade_in()
-		var grab_tween := create_tween()
 		return
-
 	inspect_pitch = 0.0
 	inspect_yaw = 0.0
-
 	is_inspecting = true
 	inspect_locked = true
 	inspected_card = cards[current_index]
@@ -139,56 +141,42 @@ func _start_inspect() -> void:
 
 	inspected_card.set_inspected(true)
 	player_head.set_input_enabled(false)
-	info_display.hide_display()
-	inspect_display.show_info(inspected_card.card_data)
 
 	if npc_controller:
 		npc_controller.hide_bubble()
 
-	var grab_tween := create_tween()
-	grab_tween.tween_property(right_hand, "position", inspected_original_position, 0.15)
-	await grab_tween.finished
-
-	var move_tween := create_tween()
-	move_tween.set_parallel(true)
-	move_tween.tween_property(right_hand, "position", inspect_position + inspect_hold_offset, 0.25)
-	move_tween.tween_property(inspected_card, "position", inspect_position, 0.25)
-	move_tween.tween_property(inspected_card, "scale", Vector3.ONE * inspect_scale, 0.25)
-	move_tween.tween_property(inspected_card, "rotation_degrees", Vector3.ZERO, 0.25)
-	await move_tween.finished
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(inspected_card, "position", inspect_position, inspect_duration)
+	tween.tween_property(inspected_card, "scale", Vector3.ONE * inspect_scale, inspect_duration)
+	tween.tween_property(inspected_card, "rotation_degrees", Vector3.ZERO, inspect_duration)
+	await tween.finished
 
 	inspect_locked = false
-
+	
 
 func _end_inspect() -> void:
 	is_inspecting = false
 	inspect_locked = true
 	player_head.set_input_enabled(true)
-	inspect_display.hide_info()
 
 	var card_to_reset := inspected_card
 	var tween := create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(card_to_reset, "position", inspected_original_position, 0.25)
-	tween.tween_property(card_to_reset, "scale", Vector3.ONE, 0.25)
-	tween.tween_property(card_to_reset, "rotation_degrees", inspected_original_rotation, 0.25)
-	tween.tween_property(right_hand, "position", right_hand.rest_position, 0.25)
-	tween.tween_property(right_hand, "rotation_degrees", Vector3.ZERO, 0.25)
+	tween.tween_property(card_to_reset, "position", inspected_original_position, inspect_duration)
+	tween.tween_property(card_to_reset, "scale", Vector3.ONE, inspect_duration)
+	tween.tween_property(card_to_reset, "rotation_degrees", inspected_original_rotation, inspect_duration)
 	await tween.finished
-	right_hand.fade_out()
-	
+
 	card_to_reset.set_inspected(false)
 	inspected_card = null
 	inspect_locked = false
-	_update_selection_visual()
 
 	if npc_controller:
 		npc_controller.show_bubble()
 
-
 func _confirm_while_inspecting() -> void:
 	is_inspecting = false
-	inspect_display.hide_info()
 
 	var card := inspected_card
 	card.set_inspected(false)
@@ -200,19 +188,6 @@ func _confirm_while_inspecting() -> void:
 	_play_selected_card()
 
 
-func _update_selection_visual() -> void:
-	if cards.is_empty():
-		info_display.hide_display()
-		return
-
-	if current_index >= cards.size():
-		current_index = cards.size() - 1
-
-	for i in range(cards.size()):
-		cards[i].set_current(i == current_index)
-	info_display.show_card(cards[current_index].card_data)
-
-
 func _play_selected_card() -> void:
 	if cards.is_empty():
 		return
@@ -221,7 +196,6 @@ func _play_selected_card() -> void:
 
 	var thrown_card: Node3D = cards[current_index]
 	cards.remove_at(current_index)
-	info_display.hide_display()
 
 	player_head.look_at_target(npc_throw_target.global_position, 0.4)
 	await _animate_throw(thrown_card)

@@ -16,12 +16,15 @@ func spawn_deltas(trust_delta: int, trauma_delta: int) -> void:
 
 	var screen_pos: Vector2 = camera.unproject_position(world_anchor.global_position)
 
-	if trust_delta != 0:
-		_spawn_one(screen_pos, "Kepercayaan %+d" % trust_delta, trust_delta > 0)
-		screen_pos.y -= stack_gap
-
 	if trauma_delta != 0:
 		_spawn_one(screen_pos, "Trauma %+d" % trauma_delta, trauma_delta > 0)
+		screen_pos.y -= stack_gap
+		
+	if trust_delta != 0:
+		_spawn_one(screen_pos, "Kepercayaan %+d" % trust_delta, trust_delta > 0)
+		
+
+	
 
 
 func _spawn_one(screen_pos: Vector2, text: String, is_positive: bool) -> void:

@@ -4,8 +4,6 @@
 [ext_resource type="Script" uid="uid://dyuaf1a4unwow" path="res://scenes/right_hand.gd" id="2_1d72u"]
 [ext_resource type="Script" uid="uid://dp2c36esw52c6" path="res://scripts/hand_sprite.gd" id="3_pa4y5"]
 [ext_resource type="Script" uid="uid://d2rsx56rgst1w" path="res://scenes/card_fan.gd" id="3_qhbaj"]
-[ext_resource type="Script" uid="uid://5d340cxm5g2b" path="res://scripts/card_info_display.gd" id="4_f3gxh"]
-[ext_resource type="Script" uid="uid://cda8gxoen8rpu" path="res://scripts/card_inspect_display.gd" id="5_1iatr"]
 [ext_resource type="Script" uid="uid://b6a0emb5vrl7s" path="res://scripts/speech_bubble.gd" id="6_c0t86"]
 [ext_resource type="Script" uid="uid://c60axncn2w270" path="res://scripts/npc_sprite_controller.gd" id="7_uki8y"]
 [ext_resource type="Script" uid="uid://cqqtu6k6bhnp0" path="res://scripts/npc_controller.gd" id="7_veire"]
@@ -29,26 +27,6 @@ subdivide_depth = 1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6mlb6"]
 load_path = "res://.godot/imported/hand_right.png-f4ffb6828a80b5eb87653721f3614c32.ctex"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iatr"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.78431374)
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h11f"]
-bg_color = Color(0.0885599, 0.0885599, 0.0885599, 0.8745098)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 16.0
-expand_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0t86"]
 bg_color = Color(0.9383754, 0.84486204, 0.76692086, 1)
@@ -90,6 +68,17 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa4y5"]
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
 [node name="Main3d" type="Node3D" unique_id=1108025950]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1810852907]
@@ -127,68 +116,14 @@ script = ExtResource("3_pa4y5")
 
 [node name="CardFan" type="Node3D" parent="PlayerHead" unique_id=1117633657]
 script = ExtResource("3_qhbaj")
+radius = 0.6
 npc_controller_path = NodePath("../../HUD/NPC")
 right_hand_path = NodePath("../RightHand")
-info_display_path = NodePath("../../HUD/CardInfoPanel")
-inspect_display_path = NodePath("../../HUD/InspectPanel")
 npc_throw_target_path = NodePath("../../HUD/NPC/NPCThrowTarget")
 world_root_path = NodePath("../..")
 player_head_path = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=448140615]
-
-[node name="CardInfoPanel" type="PanelContainer" parent="HUD" unique_id=2109817081]
-offset_left = -5.0
-offset_top = 320.0
-offset_right = 395.0
-offset_bottom = 430.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_1iatr")
-script = ExtResource("4_f3gxh")
-
-[node name="ContentVBox" type="VBoxContainer" parent="HUD/CardInfoPanel" unique_id=344814874]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="CardArt" type="TextureRect" parent="HUD/CardInfoPanel/ContentVBox" unique_id=227236126]
-layout_mode = 2
-expand_mode = 3
-
-[node name="CardText" type="Label" parent="HUD/CardInfoPanel/ContentVBox" unique_id=1972330480]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 22
-text = "tesasa"
-autowrap_mode = 2
-
-[node name="HintText" type="Label" parent="HUD/CardInfoPanel/ContentVBox" unique_id=1215558247]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.38170326, 0.38170323, 0.38170323, 1)
-text = "E: Pakai Kartu   |   Q: Lihat Detail"
-
-[node name="InspectPanel" type="PanelContainer" parent="HUD" unique_id=546022559]
-offset_left = 376.0
-offset_top = 460.0
-offset_right = 776.0
-offset_bottom = 610.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
-script = ExtResource("5_1iatr")
-
-[node name="InspectVBox" type="VBoxContainer" parent="HUD/InspectPanel" unique_id=424668960]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="InspectText" type="Label" parent="HUD/InspectPanel/InspectVBox" unique_id=1200544108]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
-autowrap_mode = 2
-
-[node name="InspectHint" type="Label" parent="HUD/InspectPanel/InspectVBox" unique_id=1361536679]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
-theme_override_font_sizes/font_size = 16
-text = "E: Pakai Kartu    |    Q: Kembali "
 
 [node name="SpeechBubble" type="Control" parent="HUD" unique_id=808525699]
 layout_mode = 3
@@ -263,18 +198,14 @@ theme_override_font_sizes/font_size = 36
 
 [node name="Text" type="Label" parent="HUD/EndingDisplay" unique_id=1756123674]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 580.0
-offset_bottom = 188.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="FloatingNumbersLayer" type="Control" parent="HUD" unique_id=37412102]
@@ -317,6 +248,25 @@ layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_5iqjx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bx8n8")
 show_percentage = false
+
+[node name="ControlHint" type="PanelContainer" parent="HUD" unique_id=1976324468]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -214.0
+offset_top = 24.0
+offset_right = -34.0
+offset_bottom = 99.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pa4y5")
+
+[node name="HintLabel" type="Label" parent="HUD/ControlHint" unique_id=668722972]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "A / D — Pilih Kartu
+     Q — Inspect / Batal
+     E — Konfirmasi"
 
 [node name="GameFlowController" type="Node" parent="." unique_id=1542437549]
 script = ExtResource("8_xgncb")
