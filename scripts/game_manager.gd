@@ -1,9 +1,10 @@
 extends Node
 
-@export var testing_mode_sprite_only: bool = true #ngetest sprite npc
+@export var testing_mode_sprite_only: bool = false #ngetest sprite npc
+@export var debug_force_tag: String = "" #ngetest kartu
 
 # ====== STATE UTAMA ======
-var trust: int = 50        # Kepercayaan Rakyat (0-100)
+var trust: int = 50       
 var trauma: int = 50   
 var current_question_index: int = 0
 var max_questions: int = 10
@@ -160,13 +161,27 @@ func _draw_hand() -> void:
 	current_hand.clear()
 	deck.shuffle()
 
+	if debug_force_tag.strip_edges() != "":
+		_force_include_tag(debug_force_tag)
+
 	for i in range(5):
+		if current_hand.size() >= 5:
+			break
 		if deck.is_empty():
 			_reshuffle_discard_into_deck()
 		if deck.is_empty():
 			break
 		current_hand.append(deck.pop_front())
 
+
+func _force_include_tag(tag: String) -> void:
+	for i in range(deck.size()):
+		if deck[i].tag == tag:
+			var forced_card: CardData = deck[i]
+			deck.remove_at(i)
+			current_hand.append(forced_card)
+			return
+	push_warning("Debug: nggak ketemu kartu dengan tag '%s' di deck" % tag)
 
 func _reshuffle_discard_into_deck() -> void:
 	deck.append_array(discard_pile)

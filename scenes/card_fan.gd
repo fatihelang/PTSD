@@ -6,7 +6,7 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var radius: float = 0.55
 @export var base_position: Vector3 = Vector3(-0.28, -0.38, -0.55)
 @export var throw_arc_height: float = 0.3
-@export var throw_duration: float = 0.35
+@export var throw_duration: float = 0.6
 @export var throw_spin_degrees: float = 1080.0
 @export var card_z_step: float = 0.01
 
@@ -15,7 +15,7 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var inspect_duration: float = 0.25
 
 @export var grab_rotation: Vector3 = Vector3(0, 0, 90)
-@export var grab_rotation_duration: float = 0.15
+@export var grab_rotation_duration: float = 0.25
 
 @export var npc_controller_path: NodePath
 @export var right_hand_path: NodePath
@@ -26,6 +26,9 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var inspect_rotate_speed: float = 0.3
 @export var inspect_max_pitch: float = 35.0
 @export var inspect_max_yaw: float = 60.0
+
+@export var danger_overlay_path: NodePath
+@export var severe_threshold: int = 8
 
 var inspect_pitch: float = 0.0
 var inspect_yaw: float = 0.0
@@ -44,6 +47,7 @@ var inspected_original_rotation: Vector3 = Vector3.ZERO
 @onready var npc_throw_target: Node3D = get_node(npc_throw_target_path)
 @onready var world_root: Node3D = get_node(world_root_path)
 @onready var player_head: Node3D = get_node(player_head_path)
+@onready var danger_overlay: TextureRect = get_node(danger_overlay_path)
 
 var current_question: QuestionData = null
 
@@ -86,8 +90,7 @@ func _spawn_fan(hand: Array) -> void:
 		card.set_card_data(hand[i])
 
 		if current_question:
-			var card_tag: String = hand[i].tag
-			var relevant: bool = card_tag in current_question.likes or card_tag in current_question.dislikes
+			var _card_tag: String = hand[i].tag
 
 		cards.append(card)
 
@@ -125,6 +128,13 @@ func _handle_inspect_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("card_confirm"):
 		_confirm_while_inspecting()
 
+func _is_severe_dislike(card: CardData, question: QuestionData) -> bool:
+	if question == null:
+		return false
+	if not (card.tag in question.dislikes):
+		return false
+	return abs(card.trust_effect) >= severe_threshold or abs(card.trauma_effect) >= severe_threshold
+	
 
 func _update_selection_visual() -> void:
 	if cards.is_empty():
@@ -148,6 +158,9 @@ func _start_inspect() -> void:
 
 	inspected_card.set_inspected(true)
 	player_head.set_input_enabled(false)
+	
+	if _is_severe_dislike(inspected_card.card_data, current_question):
+		danger_overlay.show_danger()
 
 	if npc_controller:
 		npc_controller.hide_bubble()
@@ -166,6 +179,7 @@ func _end_inspect() -> void:
 	is_inspecting = false
 	inspect_locked = true
 	player_head.set_input_enabled(true)
+	danger_overlay.hide_danger()
 
 	var card_to_reset := inspected_card
 	var tween := create_tween()
@@ -182,9 +196,9 @@ func _end_inspect() -> void:
 	if npc_controller:
 		npc_controller.show_bubble()
 
-
 func _confirm_while_inspecting() -> void:
 	is_inspecting = false
+	danger_overlay.hide_danger()
 
 	var card := inspected_card
 	card.set_inspected(false)
@@ -194,7 +208,6 @@ func _confirm_while_inspecting() -> void:
 	inspected_card = null
 
 	_play_selected_card()
-
 
 func _play_selected_card() -> void:
 	if cards.is_empty():
@@ -216,7 +229,6 @@ func _play_selected_card() -> void:
 
 
 func _animate_throw(card: Node3D) -> void:
-	right_hand.fade_in()
 
 	var grab_tween := create_tween()
 	grab_tween.set_parallel(true)
@@ -244,5 +256,3 @@ func _animate_throw(card: Node3D) -> void:
 	return_tween.tween_property(right_hand, "position", right_hand.rest_position, 0.25)
 	return_tween.tween_property(right_hand, "rotation_degrees", Vector3.ZERO, 0.25)
 	await return_tween.finished
-
-	right_hand.fade_out()
