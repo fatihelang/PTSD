@@ -6,6 +6,7 @@
 script = ExtResource("1_3hmdc")
 npc_name = "Petani Padi"
 question_text = "Pupuk subsidi makin susah dicari, gimana nih Pak?"
+sprite_id = "petani_padi"
 likes = Array[String](["Subsidi"])
 dislikes = Array[String](["Impor"])
 reaction_like = "Wah, akhirnya pupuk lancar lagi, Pak!"

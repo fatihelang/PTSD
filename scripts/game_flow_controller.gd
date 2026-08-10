@@ -3,16 +3,15 @@ extends Node
 @export var card_fan_path: NodePath
 @export var npc_controller_path: NodePath
 @export var ending_display_path: NodePath
-@export var reaction_display_seconds: float = 1.5
 @export var stat_bars_path: NodePath
 @export var floating_numbers_path: NodePath
-
-@onready var stat_bars: Control = get_node(stat_bars_path)
-@onready var floating_numbers: Control = get_node(floating_numbers_path)
+@export var reaction_display_seconds: float = 1.5
 
 @onready var card_fan: Node3D = get_node(card_fan_path)
 @onready var npc_controller: Node3D = get_node(npc_controller_path)
 @onready var ending_display: Control = get_node(ending_display_path)
+@onready var stat_bars: Control = get_node(stat_bars_path)
+@onready var floating_numbers: Control = get_node(floating_numbers_path)
 
 
 func _ready() -> void:
@@ -25,16 +24,10 @@ func _ready() -> void:
 	GameManager.start_new_game()
 	stat_bars.set_stats(GameManager.trust, GameManager.trauma, false)
 
-func _on_stats_changed(trust: int, trauma: int) -> void:
-	stat_bars.set_stats(trust, trauma)
 
-
-func _on_stats_delta(trust_delta: int, trauma_delta: int) -> void:
-	floating_numbers.spawn_deltas(trust_delta, trauma_delta)
-	
 func _on_question_shown(question: QuestionData, hand: Array) -> void:
-	npc_controller.change_npc(question.npc_name, question.question_text)
-	card_fan.show_hand(hand)
+	npc_controller.change_npc(question.npc_name, question.question_text, question.sprite_id)
+	card_fan.show_hand(hand, question)
 
 
 func _on_npc_reacted(text: String, category: String) -> void:
@@ -50,3 +43,11 @@ func _on_game_ended(_final_trust: int, _final_trauma: int) -> void:
 		ending_display.show_ending(ending.ending_title, ending.ending_text)
 	else:
 		ending_display.show_ending("Ending tidak ditemukan", "Cek konfigurasi EndingData kamu.")
+
+
+func _on_stats_changed(trust: int, trauma: int) -> void:
+	stat_bars.set_stats(trust, trauma)
+
+
+func _on_stats_delta(trust_delta: int, trauma_delta: int) -> void:
+	floating_numbers.spawn_deltas(trust_delta, trauma_delta)

@@ -86,7 +86,6 @@ expand_margin_bottom = 12.0
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=2055354303]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00016999245, -0.0032634735, 0.0017193556)
 mesh = SubResource("PlaneMesh_5h11f")
 
 [node name="Podium" type="MeshInstance3D" parent="." unique_id=1997428624]
@@ -118,12 +117,26 @@ script = ExtResource("3_pa4y5")
 
 [node name="CardFan" type="Node3D" parent="PlayerHead" unique_id=1117633657]
 script = ExtResource("3_qhbaj")
+fan_angle_degrees = null
 radius = 0.6
+base_position = null
+throw_arc_height = null
+throw_duration = null
+throw_spin_degrees = null
+card_z_step = null
+inspect_position = null
+inspect_scale = null
+inspect_duration = null
+grab_rotation = null
+grab_rotation_duration = null
 npc_controller_path = NodePath("../../HUD/NPC")
 right_hand_path = NodePath("../RightHand")
 npc_throw_target_path = NodePath("../../HUD/NPC/NPCThrowTarget")
 world_root_path = NodePath("../..")
 player_head_path = NodePath("..")
+inspect_rotate_speed = null
+inspect_max_pitch = null
+inspect_max_yaw = null
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=448140615]
 
@@ -178,7 +191,7 @@ script = ExtResource("7_uki8y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, 0)
 
 [node name="NPCThrowTarget" type="Marker3D" parent="HUD/NPC" unique_id=449389158]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99437726, -4.0875397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -1.7859864)
 
 [node name="EndingDisplay" type="Panel" parent="HUD" unique_id=1370872846]
 anchors_preset = 15

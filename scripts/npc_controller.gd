@@ -8,12 +8,13 @@ extends Node3D
 @onready var sprite: Sprite3D = get_node(sprite_path)
 
 
-func change_npc(npc_name: String, question_text: String) -> void:
+func change_npc(npc_name: String, question_text: String, sprite_id: String) -> void:
 	hide_bubble()
 
-	scale = Vector3.ZERO
+	sprite.set_sprite_id(sprite_id)
 	sprite.set_expression("idle")
 
+	scale = Vector3.ZERO
 	var tween := create_tween()
 	tween.tween_property(self, "scale", Vector3.ONE, change_duration)\
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

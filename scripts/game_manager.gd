@@ -1,5 +1,7 @@
 extends Node
 
+@export var testing_mode_sprite_only: bool = true #ngetest sprite npc
+
 # ====== STATE UTAMA ======
 var trust: int = 50        # Kepercayaan Rakyat (0-100)
 var trauma: int = 50   
@@ -56,7 +58,21 @@ func _ready() -> void:
 	_load_all_endings()
 
 
-func start_new_game() -> void:
+#func start_new_game() -> void:
+	#trust = 50
+	#trauma = 50
+	#current_question_index = 0
+#
+	#deck = all_cards.duplicate()
+	#discard_pile.clear()
+	#current_hand.clear()
+#
+	#remaining_questions = all_questions.duplicate()
+	#remaining_questions.shuffle()
+#
+	#next_question()
+	 
+func start_new_game() -> void: #ngetest sprite npc
 	trust = 50
 	trauma = 50
 	current_question_index = 0
@@ -65,7 +81,13 @@ func start_new_game() -> void:
 	discard_pile.clear()
 	current_hand.clear()
 
-	remaining_questions = all_questions.duplicate()
+	var question_pool: Array[QuestionData] = all_questions
+
+	if testing_mode_sprite_only:
+		question_pool = all_questions.filter(func(q): return q.sprite_id.strip_edges() != "")
+		print("Testing mode: cuma pakai ", question_pool.size(), " NPC yang punya sprite")
+
+	remaining_questions = question_pool.duplicate()
 	remaining_questions.shuffle()
 
 	next_question()

@@ -45,12 +45,15 @@ var inspected_original_rotation: Vector3 = Vector3.ZERO
 @onready var world_root: Node3D = get_node(world_root_path)
 @onready var player_head: Node3D = get_node(player_head_path)
 
+var current_question: QuestionData = null
+
 
 func _ready() -> void:
 	input_locked = true
 
 
-func show_hand(hand: Array) -> void:
+func show_hand(hand: Array, question: QuestionData = null) -> void:
+	current_question = question
 	_spawn_fan(hand)
 	call_deferred("_update_selection_visual")
 	input_locked = false
@@ -81,6 +84,10 @@ func _spawn_fan(hand: Array) -> void:
 		card.set_base_position(Vector3(x, y, z))
 		card.rotation_degrees = Vector3(0, 0, -angle_deg)
 		card.set_card_data(hand[i])
+
+		if current_question:
+			var card_tag: String = hand[i].tag
+			var relevant: bool = card_tag in current_question.likes or card_tag in current_question.dislikes
 
 		cards.append(card)
 
@@ -153,7 +160,7 @@ func _start_inspect() -> void:
 	await tween.finished
 
 	inspect_locked = false
-	
+
 
 func _end_inspect() -> void:
 	is_inspecting = false
@@ -174,6 +181,7 @@ func _end_inspect() -> void:
 
 	if npc_controller:
 		npc_controller.show_bubble()
+
 
 func _confirm_while_inspecting() -> void:
 	is_inspecting = false

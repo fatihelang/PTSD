@@ -5,9 +5,11 @@
 [resource]
 script = ExtResource("1_vj812")
 npc_name = "Netizen"
-question_text = "Ini serius Pak jawabannya? Rakyat nunggu solusi bukan drama."
+question_text = "Ini serius Pak kebijakannya? Rakyat nunggu solusi bukan drama."
+likes = Array[String](["Evaluasi"])
+dislikes = Array[String](["Tunda"])
 disposition = "Hater"
-reaction_like = "Nah gini nih baru presiden becus, respect Pak. 👍"
-reaction_dislike = "Ini beneran Pak jawabannya? Gak niat banget dah. 🙄"
-reaction_neutral = "Lah Pak ini jawabannya nyambung ke pertanyaan gak sih? 🤨"
-reaction_belittled = "WOW OKE SIP, RAKYAT EMANG PANTES DIREMEHKAN YA PAK? 🤡"
+reaction_like = "Nah gini nih baru presiden becus, respect Pak. "
+reaction_dislike = "Ini beneran Pak jawabannya? Gak niat banget dah. "
+reaction_neutral = "Lah Pak ini jawabannya nyambung ke pertanyaan gak sih? "
+reaction_belittled = "WOW OKE SIP, RAKYAT EMANG PANTES DIREMEHKAN YA PAK? "
