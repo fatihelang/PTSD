@@ -1,14 +1,14 @@
 extends Node
 
 @export var card_fan_path: NodePath
-@export var npc_walk_controller_path: NodePath
+@export var npc_controller_path: NodePath
 @export var ending_display_path: NodePath
 @export var stat_bars_path: NodePath
 @export var floating_numbers_path: NodePath
 @export var reaction_display_seconds: float = 1.5
 
 @onready var card_fan: Node3D = get_node(card_fan_path)
-@onready var npc_walk_controller: Node3D = get_node(npc_walk_controller_path)
+@onready var npc_controller: Node3D = get_node(npc_controller_path)
 @onready var ending_display: Control = get_node(ending_display_path)
 @onready var stat_bars: Control = get_node(stat_bars_path)
 @onready var floating_numbers: Control = get_node(floating_numbers_path)
@@ -26,19 +26,18 @@ func _ready() -> void:
 
 
 func _on_question_shown(question: QuestionData, hand: Array) -> void:
-	await npc_walk_controller.transition_to(question.sprite_id)
-	npc_walk_controller.show_new_question(question.npc_name, question.question_text)
+	npc_controller.change_npc(question.npc_name, question.question_text, question.sprite_id)
 	card_fan.show_hand(hand, question)
 
 
 func _on_npc_reacted(text: String, category: String) -> void:
-	npc_walk_controller.show_reaction(text, category)
+	npc_controller.show_reaction(text, category)
 	await get_tree().create_timer(reaction_display_seconds).timeout
 	GameManager.advance_to_next_question()
 
 
 func _on_game_ended(_final_trust: int, _final_trauma: int) -> void:
-	npc_walk_controller.hide_bubble()
+	npc_controller.hide_bubble()
 	var ending: EndingData = GameManager.get_matching_ending()
 	if ending:
 		ending_display.show_ending(ending.ending_title, ending.ending_text)

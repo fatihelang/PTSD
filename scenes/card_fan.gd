@@ -17,7 +17,7 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var grab_rotation: Vector3 = Vector3(0, 0, 90)
 @export var grab_rotation_duration: float = 0.25
 
-@export var npc_walk_controller_path: NodePath
+@export var npc_controller_path: NodePath
 @export var right_hand_path: NodePath
 @export var npc_throw_target_path: NodePath
 @export var world_root_path: NodePath
@@ -42,7 +42,7 @@ var inspected_card: Node3D = null
 var inspected_original_position: Vector3 = Vector3.ZERO
 var inspected_original_rotation: Vector3 = Vector3.ZERO
 
-@onready var npc_walk_controller: Node3D = get_node(npc_walk_controller_path)
+@onready var npc_controller: Node3D = get_node(npc_controller_path)
 @onready var right_hand: Node3D = get_node(right_hand_path)
 @onready var npc_throw_target: Node3D = get_node(npc_throw_target_path)
 @onready var world_root: Node3D = get_node(world_root_path)
@@ -63,10 +63,6 @@ func show_hand(hand: Array, question: QuestionData = null) -> void:
 	input_locked = false
 	player_head.set_input_enabled(true)
 
-
-@export var deck_origin: Vector3 = Vector3(-0.1, -0.5, -0.4)
-@export var deal_stagger: float = 0.07
-@export var deal_duration: float = 0.35
 
 func _spawn_fan(hand: Array) -> void:
 	for c in cards:
@@ -89,11 +85,15 @@ func _spawn_fan(hand: Array) -> void:
 		var y = base_position.y - (1.0 - cos(angle_rad)) * radius * 0.6
 		var z = base_position.z + i * card_z_step
 
-		card.base_position = Vector3(x, y, z)
+		card.set_base_position(Vector3(x, y, z))
+		card.rotation_degrees = Vector3(0, 0, -angle_deg)
 		card.set_card_data(hand[i])
-		card.play_deal_in(deck_origin, Vector3(0, 0, -angle_deg), i * deal_stagger, deal_duration)
+
+		if current_question:
+			var _card_tag: String = hand[i].tag
 
 		cards.append(card)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_inspecting:
@@ -162,8 +162,8 @@ func _start_inspect() -> void:
 	if _is_severe_dislike(inspected_card.card_data, current_question):
 		danger_overlay.show_danger()
 
-	if npc_walk_controller:
-		npc_walk_controller.hide_bubble()
+	if npc_controller:
+		npc_controller.hide_bubble()
 
 	var tween := create_tween()
 	tween.set_parallel(true)
@@ -193,8 +193,8 @@ func _end_inspect() -> void:
 	inspected_card = null
 	inspect_locked = false
 
-	if npc_walk_controller:
-		npc_walk_controller.show_bubble()
+	if npc_controller:
+		npc_controller.show_bubble()
 
 func _confirm_while_inspecting() -> void:
 	is_inspecting = false

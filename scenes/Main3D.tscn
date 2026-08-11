@@ -7,13 +7,12 @@
 [ext_resource type="Script" uid="uid://b6a0emb5vrl7s" path="res://scripts/speech_bubble.gd" id="6_c0t86"]
 [ext_resource type="Texture2D" uid="uid://b73cqiye68to8" path="res://assets/npc/petani_kopi_idle.png" id="7_pa4y5"]
 [ext_resource type="Script" uid="uid://c60axncn2w270" path="res://scripts/npc_sprite_controller.gd" id="7_uki8y"]
+[ext_resource type="Script" uid="uid://cqqtu6k6bhnp0" path="res://scripts/npc_controller.gd" id="7_veire"]
 [ext_resource type="Script" uid="uid://b3l4weits7eyh" path="res://scripts/ending_display.gd" id="8_37kgh"]
 [ext_resource type="Script" uid="uid://evyifngbxr4r" path="res://scripts/game_flow_controller.gd" id="8_xgncb"]
 [ext_resource type="Script" uid="uid://di21peuc35j8b" path="res://scripts/floating_numbers_layer.gd" id="9_gtawn"]
 [ext_resource type="Script" uid="uid://d4kr63iedd2ia" path="res://scripts/stat_bars.gd" id="10_uki8y"]
 [ext_resource type="Script" uid="uid://0hjqxxsdyde5" path="res://scripts/danger_overlay.gd" id="12_0mw75"]
-[ext_resource type="Script" uid="uid://n052yf52dxsi" path="res://scripts/npc_walker.gd" id="12_6mlb6"]
-[ext_resource type="Script" uid="uid://dqoaa5bd6ijtq" path="res://scenes/npc_walk_controller.gd" id="12_nujbj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5h11f"]
 size = Vector2(20, 20)
@@ -121,9 +120,9 @@ script = ExtResource("3_pa4y5")
 [node name="CardFan" type="Node3D" parent="PlayerHead" unique_id=1117633657]
 script = ExtResource("3_qhbaj")
 radius = 0.6
-npc_walk_controller_path = NodePath("../../NPCWalkController")
+npc_controller_path = NodePath("../../HUD/NPC")
 right_hand_path = NodePath("../RightHand")
-npc_throw_target_path = NodePath("../../HUD/NPCThrowTarget")
+npc_throw_target_path = NodePath("../../HUD/NPC/NPCThrowTarget")
 world_root_path = NodePath("../..")
 player_head_path = NodePath("..")
 inspect_max_yaw = 20.0
@@ -140,6 +139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_c0t86")
+world_anchor_path = NodePath("../NPC/SpeechAnchor")
 camera_path = NodePath("../../PlayerHead/Camera3D")
 
 [node name="Bubble" type="PanelContainer" parent="HUD/SpeechBubble" unique_id=1445089732]
@@ -164,6 +164,25 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="NPC" type="Node3D" parent="HUD" unique_id=925441599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9061728)
+script = ExtResource("7_veire")
+speech_bubble_path = NodePath("../SpeechBubble")
+sprite_path = NodePath("NPCSprite")
+
+[node name="NPCSprite" type="Sprite3D" parent="HUD/NPC" unique_id=1515608356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1880472, 0)
+pixel_size = 0.0015
+billboard = 2
+texture = ExtResource("7_pa4y5")
+script = ExtResource("7_uki8y")
+
+[node name="SpeechAnchor" type="Marker3D" parent="HUD/NPC" unique_id=205495548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, 0)
+
+[node name="NPCThrowTarget" type="Marker3D" parent="HUD/NPC" unique_id=449389158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99437726, -4.0875397)
 
 [node name="EndingDisplay" type="Panel" parent="HUD" unique_id=1370872846]
 anchors_preset = 15
@@ -206,7 +225,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_gtawn")
-world_anchor_path = NodePath("../../NPCWalkController/WalkerA/SpeechAnchor")
+world_anchor_path = NodePath("../NPC/SpeechAnchor")
 camera_path = NodePath("../../PlayerHead/Camera3D")
 
 [node name="StatBars" type="Control" parent="HUD" unique_id=38054827]
@@ -267,51 +286,10 @@ mouse_filter = 2
 expand_mode = 1
 script = ExtResource("12_0mw75")
 
-[node name="NPCThrowTarget" type="Marker3D" parent="HUD" unique_id=449389158]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99437726, -8.993712)
-
 [node name="GameFlowController" type="Node" parent="." unique_id=1542437549]
 script = ExtResource("8_xgncb")
 card_fan_path = NodePath("../PlayerHead/CardFan")
+npc_controller_path = NodePath("../HUD/NPC")
 ending_display_path = NodePath("../HUD/EndingDisplay")
 stat_bars_path = NodePath("../HUD/StatBars")
 floating_numbers_path = NodePath("../HUD/FloatingNumbersLayer")
-
-[node name="NPCWalkController" type="Node3D" parent="." unique_id=1447744059]
-script = ExtResource("12_nujbj")
-speech_bubble_path = NodePath("../HUD/SpeechBubble")
-walk_duration = null
-jiggle_amplitude = null
-jiggle_speed = null
-
-[node name="EntryMarker" type="Marker3D" parent="NPCWalkController" unique_id=1987791152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.566808, 0, -3)
-
-[node name="ExitMarker" type="Marker3D" parent="NPCWalkController" unique_id=190114302]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
-
-[node name="WalkerA" type="Node3D" parent="NPCWalkController" unique_id=1154812279]
-script = ExtResource("12_6mlb6")
-
-[node name="NPCSprite" type="Sprite3D" parent="NPCWalkController/WalkerA" unique_id=1515608356]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1880472, -4.9061728)
-pixel_size = 0.0015
-billboard = 2
-texture = ExtResource("7_pa4y5")
-script = ExtResource("7_uki8y")
-
-[node name="SpeechAnchor" type="Marker3D" parent="NPCWalkController/WalkerA" unique_id=205495548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, -4.9061728)
-
-[node name="WalkerB" type="Node3D" parent="NPCWalkController" unique_id=1217283190]
-script = ExtResource("12_6mlb6")
-
-[node name="NPCSprite" type="Sprite3D" parent="NPCWalkController/WalkerB" unique_id=1282752054]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1880472, -4.9061728)
-pixel_size = 0.0015
-billboard = 2
-texture = ExtResource("7_pa4y5")
-script = ExtResource("7_uki8y")
-
-[node name="SpeechAnchor" type="Marker3D" parent="NPCWalkController/WalkerB" unique_id=1382009611]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, -4.9061728)
