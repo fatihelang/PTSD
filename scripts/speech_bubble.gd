@@ -1,15 +1,14 @@
 extends Control
-
-@export var world_anchor_path: NodePath
+#speech buble
 @export var camera_path: NodePath
 @export var extra_lift: float = 20.0
 @export var fade_duration: float = 0.25
-@onready var world_anchor: Node3D = get_node(world_anchor_path)
 @onready var camera: Camera3D = get_node(camera_path)
 @onready var bubble: PanelContainer = $Bubble
 @onready var name_text: Label = $Bubble/BubbleVBox/NameText
 @onready var question_text: Label = $Bubble/BubbleVBox/QuestionText
 
+var world_anchor: Node3D = null
 var manual_alpha: float = 0.0
 var fade_tween: Tween
 
@@ -17,6 +16,10 @@ var fade_tween: Tween
 func _ready() -> void:
 	bubble.visible = false
 	bubble.modulate.a = 0.0
+
+
+func set_world_anchor(node: Node3D) -> void:
+	world_anchor = node
 
 
 func show_question(npc_name: String, text: String) -> void:

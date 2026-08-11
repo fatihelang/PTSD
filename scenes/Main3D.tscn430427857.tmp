@@ -121,8 +121,6 @@ script = ExtResource("3_pa4y5")
 [node name="CardFan" type="Node3D" parent="PlayerHead" unique_id=1117633657]
 script = ExtResource("3_qhbaj")
 radius = 0.6
-throw_arc_height = 1.0
-throw_duration = 0.5
 npc_walk_controller_path = NodePath("../../NPCWalkController")
 right_hand_path = NodePath("../RightHand")
 npc_throw_target_path = NodePath("../../NPCThrowTarget")
@@ -138,10 +136,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -15.0
-offset_right = 1.0
-offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -212,7 +206,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_gtawn")
-world_anchor_path = NodePath("../../NPCWalkController/FloatingNumberAnchor")
+world_anchor_path = NodePath("../../NPCWalkController/WalkerA/SpeechAnchor")
 camera_path = NodePath("../../PlayerHead/Camera3D")
 
 [node name="StatBars" type="Control" parent="HUD" unique_id=38054827]
@@ -273,29 +267,28 @@ mouse_filter = 2
 expand_mode = 1
 script = ExtResource("12_0mw75")
 
+[node name="GameFlowController" type="Node" parent="." unique_id=1542437549]
+script = ExtResource("8_xgncb")
+card_fan_path = NodePath("../PlayerHead/CardFan")
+ending_display_path = NodePath("../HUD/EndingDisplay")
+stat_bars_path = NodePath("../HUD/StatBars")
+floating_numbers_path = NodePath("../HUD/FloatingNumbersLayer")
+
 [node name="NPCThrowTarget" type="Marker3D" parent="." unique_id=449389158]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.71634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99437726, -8.993712)
 
 [node name="NPCWalkController" type="Node3D" parent="." unique_id=705326475]
 script = ExtResource("12_nujbj")
-entry_marker_path = NodePath("EntryMaker")
-exit_marker_path = NodePath("ExitMaker")
-stage_marker_path = NodePath("../NPCThrowTarget")
-walker_a_path = NodePath("WalkerA")
-walker_b_path = NodePath("WalkerB")
-speech_bubble_path = NodePath("../HUD/SpeechBubble")
 
 [node name="EntryMaker" type="Marker3D" parent="NPCWalkController" unique_id=943073892]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5)
 
 [node name="ExitMaker" type="Marker3D" parent="NPCWalkController" unique_id=512988471]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -5)
 
 [node name="WalkerA" type="Node3D" parent="NPCWalkController" unique_id=1246757907]
 script = ExtResource("12_6mlb6")
 
 [node name="NPCSprite" type="Sprite3D" parent="NPCWalkController/WalkerA" unique_id=1515608356]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.188, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1880472, -4.9061728)
 pixel_size = 0.0015
 billboard = 2
 texture = ExtResource("7_pa4y5")
@@ -308,7 +301,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, -4.9061728)
 script = ExtResource("12_6mlb6")
 
 [node name="NPCSprite" type="Sprite3D" parent="NPCWalkController/WalkerB" unique_id=2059852722]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.188, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1880472, -4.9061728)
 pixel_size = 0.0015
 billboard = 2
 texture = ExtResource("7_pa4y5")
@@ -316,14 +309,3 @@ script = ExtResource("7_uki8y")
 
 [node name="SpeechAnchor" type="Marker3D" parent="NPCWalkController/WalkerB" unique_id=1775180232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, -4.9061728)
-
-[node name="FloatingNumberAnchor" type="Marker3D" parent="NPCWalkController" unique_id=1007366501]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
-
-[node name="GameFlowController" type="Node" parent="." unique_id=1542437549]
-script = ExtResource("8_xgncb")
-card_fan_path = NodePath("../PlayerHead/CardFan")
-npc_walk_controller_path = NodePath("../NPCWalkController")
-ending_display_path = NodePath("../HUD/EndingDisplay")
-stat_bars_path = NodePath("../HUD/StatBars")
-floating_numbers_path = NodePath("../HUD/FloatingNumbersLayer")

@@ -71,3 +71,4 @@ func restore_look(duration: float) -> void:
 
 	pitch = stored_pitch
 	yaw = stored_yaw
+	input_enabled = true
