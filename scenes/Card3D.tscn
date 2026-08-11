@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uo2rwih4wqj3" path="res://scenes/card_3d.gd" id="1_6a3dy"]
 [ext_resource type="Texture2D" uid="uid://djdrjuglual0" path="res://assets/cards/card_icon_maaf.png" id="2_s7pq4"]
+[ext_resource type="Texture2D" uid="uid://cpf8qxdbqc6qm" path="res://assets/cards/card_shadow.png" id="3_vo7a7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1lqj"]
 albedo_color = Color(0, 0, 0, 1)
@@ -34,6 +35,14 @@ mesh = SubResource("BoxMesh_bx8n8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070137024, 0.004)
 pixel_size = 0.0002
 texture = ExtResource("2_s7pq4")
+
+[node name="Sprite3D" type="Sprite3D" parent="CardMesh/CardWhiteBorder/CardFace" unique_id=1801943510]
+transform = Transform3D(0.82244027, 0, 0, 0, 1.1492081, 0, 0, 0, 1.7128214, 0.046090826, 0, 0.003967807)
+transparency = 0.5
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.0002
+transparent = false
+texture = ExtResource("3_vo7a7")
 
 [node name="CardText" type="Label3D" parent="CardMesh/CardWhiteBorder/CardFace" unique_id=1233325590]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008108977, 0.004)
