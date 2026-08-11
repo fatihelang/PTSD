@@ -115,3 +115,15 @@ func _process(delta: float) -> void:
 	position.y = lerp(position.y, target_y, delta * lerp_speed)
 	position.z = lerp(position.z, target_z, delta * lerp_speed)
 	scale = scale.lerp(Vector3.ONE * target_scale, delta * lerp_speed)
+	
+	
+func play_deal_in(from_position: Vector3, target_rotation: Vector3, delay: float, duration: float) -> void:
+	position = from_position
+	rotation_degrees = target_rotation + Vector3(0, 0, randf_range(-45, 45))
+	await get_tree().create_timer(delay).timeout
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, "position", base_position, duration)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "rotation_degrees", target_rotation, duration)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

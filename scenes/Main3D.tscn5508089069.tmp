@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b6a0emb5vrl7s" path="res://scripts/speech_bubble.gd" id="6_c0t86"]
 [ext_resource type="Texture2D" uid="uid://b73cqiye68to8" path="res://assets/npc/petani_kopi_idle.png" id="7_pa4y5"]
 [ext_resource type="Script" uid="uid://c60axncn2w270" path="res://scripts/npc_sprite_controller.gd" id="7_uki8y"]
+[ext_resource type="Script" uid="uid://cqqtu6k6bhnp0" path="res://scripts/npc_controller.gd" id="7_veire"]
 [ext_resource type="Script" uid="uid://b3l4weits7eyh" path="res://scripts/ending_display.gd" id="8_37kgh"]
 [ext_resource type="Script" uid="uid://evyifngbxr4r" path="res://scripts/game_flow_controller.gd" id="8_xgncb"]
 [ext_resource type="Script" uid="uid://di21peuc35j8b" path="res://scripts/floating_numbers_layer.gd" id="9_gtawn"]
@@ -121,7 +122,6 @@ script = ExtResource("3_pa4y5")
 [node name="CardFan" type="Node3D" parent="PlayerHead" unique_id=1117633657]
 script = ExtResource("3_qhbaj")
 radius = 0.6
-npc_walk_controller_path = NodePath("../../NPCWalkController")
 right_hand_path = NodePath("../RightHand")
 npc_throw_target_path = NodePath("../../HUD/NPCThrowTarget")
 world_root_path = NodePath("../..")
@@ -164,6 +164,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="NPC" type="Node3D" parent="HUD" unique_id=925441599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9061728)
+script = ExtResource("7_veire")
+speech_bubble_path = NodePath("../SpeechBubble")
+sprite_path = NodePath("../../NPCWalkController/WalkerA/NPCSprite")
 
 [node name="EndingDisplay" type="Panel" parent="HUD" unique_id=1370872846]
 anchors_preset = 15
@@ -279,16 +285,10 @@ floating_numbers_path = NodePath("../HUD/FloatingNumbersLayer")
 
 [node name="NPCWalkController" type="Node3D" parent="." unique_id=1447744059]
 script = ExtResource("12_nujbj")
-speech_bubble_path = NodePath("../HUD/SpeechBubble")
-walk_duration = null
-jiggle_amplitude = null
-jiggle_speed = null
 
 [node name="EntryMarker" type="Marker3D" parent="NPCWalkController" unique_id=1987791152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.566808, 0, -3)
 
 [node name="ExitMarker" type="Marker3D" parent="NPCWalkController" unique_id=190114302]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
 
 [node name="WalkerA" type="Node3D" parent="NPCWalkController" unique_id=1154812279]
 script = ExtResource("12_6mlb6")
