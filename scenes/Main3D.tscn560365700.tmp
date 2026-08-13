@@ -211,7 +211,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_gtawn")
-stat_bars_path = NodePath("../StatBars")
+stat_bars_path = NodePath("../SpeechBubble")
 
 [node name="StatBars" type="Control" parent="HUD" unique_id=38054827]
 layout_mode = 3
