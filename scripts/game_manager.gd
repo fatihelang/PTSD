@@ -241,30 +241,24 @@ func _get_reaction_text(category: String, question: QuestionData) -> String:
 
 func choose_card(chosen_card: CardData) -> void:
 	var final_trust_delta: float
-	var final_trauma_delta: float
+	var final_rep_delta: float
 
 	match current_question.disposition:
 		"Supporter":
 			final_trust_delta = abs(chosen_card.trust_effect) * 2.0
-			final_trauma_delta = -abs(chosen_card.trauma_effect) * 2.0
+			final_rep_delta = abs(chosen_card.trauma_effect) * 2.0
 		"Hater":
 			final_trust_delta = -abs(chosen_card.trust_effect) * 2.0
-			final_trauma_delta = abs(chosen_card.trauma_effect) * 2.0
+			final_rep_delta = -abs(chosen_card.trauma_effect) * 2.0
 		_:
-			if chosen_card.tag in current_question.likes:
-				final_trust_delta = abs(chosen_card.trust_effect) * 2.0
-				final_trauma_delta = -abs(chosen_card.trauma_effect) * 2.0
-			elif chosen_card.tag in current_question.dislikes:
-				final_trust_delta = -abs(chosen_card.trust_effect)
-				final_trauma_delta = abs(chosen_card.trauma_effect)
-			else:
-				final_trust_delta = chosen_card.trust_effect
-				final_trauma_delta = chosen_card.trauma_effect
+			var mult = _get_tag_multiplier(chosen_card.tag, current_question.likes, current_question.dislikes)
+			final_trust_delta = chosen_card.trust_effect * mult
+			final_rep_delta = chosen_card.trauma_effect * mult
 
 	trust = clampi(trust + int(round(final_trust_delta)), 0, 100)
-	trauma = clampi(trauma + int(round(final_trauma_delta)), 0, 100)
+	trauma = clampi(trauma + int(round(final_rep_delta)), 0, 100)
 
-	stats_delta.emit(int(round(final_trust_delta)), int(round(final_trauma_delta)))
+	stats_delta.emit(int(round(final_trust_delta)), int(round(final_rep_delta)))
 
 	for card in current_hand:
 		if card == chosen_card:
@@ -279,6 +273,7 @@ func choose_card(chosen_card: CardData) -> void:
 	card_chosen.emit(chosen_card)
 	stats_changed.emit(trust, trauma)
 	npc_reacted.emit(reaction_text, category)
+
 
 
 func get_matching_ending() -> EndingData:

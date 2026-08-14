@@ -129,6 +129,7 @@ right_hand_path = NodePath("../RightHand")
 npc_throw_target_path = NodePath("../../NPCThrowTarget")
 world_root_path = NodePath("../..")
 player_head_path = NodePath("..")
+inspect_max_yaw = 20.0
 danger_overlay_path = NodePath("../../HUD/DangerOverlay")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=448140615]
@@ -212,9 +213,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_gtawn")
+<<<<<<< HEAD
 world_anchor_path = NodePath("../../NPCThrowTarget/FloatingNumberAnchor")
 camera_path = NodePath("../../PlayerHead/Camera3D")
 stat_bars_path = NodePath("../StatBars")
+=======
+world_anchor_path = NodePath("../../NPCWalkController/FloatingNumberAnchor")
+camera_path = NodePath("../../PlayerHead/Camera3D")
+>>>>>>> parent of 8dfa8bc (a)
 
 [node name="StatBars" type="Control" parent="HUD" unique_id=38054827]
 layout_mode = 3
@@ -320,6 +326,9 @@ script = ExtResource("7_uki8y")
 
 [node name="SpeechAnchor" type="Marker3D" parent="NPCWalkController/WalkerB" unique_id=1775180232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3262217, -4.9061728)
+
+[node name="FloatingNumberAnchor" type="Marker3D" parent="NPCWalkController" unique_id=1007366501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2343824, 0.38485122)
 
 [node name="GameFlowController" type="Node" parent="." unique_id=1542437549]
 script = ExtResource("8_xgncb")
