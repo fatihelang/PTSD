@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b5v6elihlcf5q"]
 
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_04m0j"]
+[ext_resource type="Texture2D" uid="uid://c3e555n75wuvl" path="res://assets/cards/card_028.png" id="1_r2b6t"]
 
 [resource]
 script = ExtResource("1_04m0j")
+card_id = "card_028"
 card_name = "Cobalah menanam sawit"
 trust_effect = -15
 trauma_effect = 10
+card_art = ExtResource("1_r2b6t")
 tag = "Meremehkan"

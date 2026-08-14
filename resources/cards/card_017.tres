@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bfhgwlac38kf2"]
 
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_mplor"]
+[ext_resource type="Texture2D" uid="uid://5e3gav54334y" path="res://assets/cards/card_017.png" id="1_wxxg5"]
 
 [resource]
 script = ExtResource("1_mplor")
+card_id = "card_017"
 card_name = "Impor akan saya buka demi harga murah"
 trust_effect = -8
-trauma_effect = -6
+trauma_effect = 6
+card_art = ExtResource("1_wxxg5")
 tag = "Impor"

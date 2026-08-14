@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://wq8lmv8yvmba"]
 
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_fbw15"]
+[ext_resource type="Texture2D" uid="uid://c17dshnypu2vd" path="res://assets/cards/card_003.png" id="1_xwbay"]
 
 [resource]
 script = ExtResource("1_fbw15")
+card_id = "card_003"
 card_name = "Saya tunda sampai saya niat"
 trust_effect = -8
 trauma_effect = 4
+card_art = ExtResource("1_xwbay")
 tag = "Tunda"

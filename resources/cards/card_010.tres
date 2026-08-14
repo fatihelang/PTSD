@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c7fg67p1wkqqa"]
 
+[ext_resource type="Texture2D" uid="uid://b4p4tbeuu1skv" path="res://assets/cards/card_010.png" id="1_1dmui"]
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_r1stw"]
 
 [resource]
 script = ExtResource("1_r1stw")
+card_id = "card_010"
 card_name = "Investor akan saya beri insentif pajak"
 trust_effect = -8
 trauma_effect = -8
+card_art = ExtResource("1_1dmui")
 tag = "Investasi"

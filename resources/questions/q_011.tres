@@ -6,6 +6,7 @@
 script = ExtResource("1_qy2ud")
 npc_name = "Guru Honorer"
 question_text = "Gaji kami di bawah UMR, padahal ngajar generasi bangsa."
+sprite_id = "guru"
 likes = Array[String](["Subsidi", "Bansos"])
 dislikes = Array[String](["Evaluasi"])
 reaction_like = "Akhirnya gaji kami dihargai juga, terima kasih Pak."

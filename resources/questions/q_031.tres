@@ -6,6 +6,7 @@
 script = ExtResource("1_fsk67")
 npc_name = "Petani Sawit Kecil"
 question_text = "Harga TBS anjlok, tengkulak yang untung."
+sprite_id = "petani_sawit"
 likes = Array[String](["Subsidi"])
 dislikes = Array[String](["Deregulasi"])
 reaction_like = "Untung juga harga TBS mulai naik, Pak."

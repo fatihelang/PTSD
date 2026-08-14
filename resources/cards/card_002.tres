@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cektw0lsglwrj"]
 
+[ext_resource type="Texture2D" uid="uid://bqrtbgle2y2ly" path="res://assets/cards/card_002.png" id="1_bd4m4"]
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_sgcnw"]
 
 [resource]
 script = ExtResource("1_sgcnw")
+card_id = "card_002"
 card_name = "Anggaran akan saya tinjau ulang"
 trust_effect = 3
 trauma_effect = -3
+card_art = ExtResource("1_bd4m4")
 tag = "Evaluasi"

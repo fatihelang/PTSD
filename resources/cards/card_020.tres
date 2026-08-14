@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c12jgyo5ryo7"]
 
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_8sj6e"]
+[ext_resource type="Texture2D" uid="uid://dc7am4v7kqwy6" path="res://assets/cards/card_020.png" id="1_rpdxb"]
 
 [resource]
 script = ExtResource("1_8sj6e")
+card_id = "card_020"
 card_name = "Aparat akan saya turunkan jaga ketertiban"
-trust_effect = -10
-trauma_effect = -4
+trust_effect = -5
+trauma_effect = 10
+card_art = ExtResource("1_rpdxb")
 tag = "Represif"

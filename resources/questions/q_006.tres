@@ -6,6 +6,7 @@
 script = ExtResource("1_kqxkc")
 npc_name = "Ojek Online"
 question_text = "BBM naik terus, tarif aplikasi nggak ikut naik."
+sprite_id = "ojek"
 likes = Array[String](["Subsidi", "Dialog"])
 dislikes = Array[String](["Pajak"])
 reaction_like = "Legaan deh, jadi lebih tenang narik, Pak!"

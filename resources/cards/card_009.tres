@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b5k1qbu11fd2k"]
 
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_158g3"]
+[ext_resource type="Texture2D" uid="uid://bh0e2uu8651r0" path="res://assets/cards/card_009.png" id="1_a5t3p"]
 
 [resource]
 script = ExtResource("1_158g3")
+card_id = "card_009"
 card_name = "saya akan buka investasi asing seluas-luasnya"
 trust_effect = -6
 trauma_effect = -10
+card_art = ExtResource("1_a5t3p")
 tag = "Investasi"

@@ -1,7 +1,8 @@
 extends Resource
 class_name CardData
 
-@export var card_name: String = "Contoh: Kami akan evaluasi"  
+@export var card_id: String = ""
+@export var card_name: String = "Kami akan evaluasi"
 @export var trust_effect: int = 0
 @export var trauma_effect: int = 0
 @export var card_art: Texture2D

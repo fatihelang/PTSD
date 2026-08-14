@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dg52q8scxnhj3"]
 
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_03wn7"]
+[ext_resource type="Texture2D" uid="uid://dr8j0s57mhwbn" path="res://assets/cards/card_014.png" id="1_gh8pe"]
 
 [resource]
 script = ExtResource("1_03wn7")
+card_id = "card_014"
 card_name = "Bansos akan saya salurkan tepat sasaran"
 trust_effect = 6
 trauma_effect = -2
+card_art = ExtResource("1_gh8pe")
 tag = "Bansos"

@@ -1,7 +1,7 @@
 extends Node
 
 @export var testing_mode_sprite_only: bool = true #ngetest sprite npc
-@export var debug_force_tag: String = "Impor" #ngetest kartu
+@export var debug_force_tag: String = "" #ngetest kartu
 
 # ====== STATE UTAMA ======
 var trust: int = 50       

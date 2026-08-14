@@ -29,6 +29,10 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var deck_origin: Vector3 = Vector3(-0.1, -0.5, -0.4)
 @export var deal_stagger: float = 0.07
 @export var deal_duration: float = 0.35
+@export var inspect_rotate_speed: float = 0.3
+
+@export var inspect_max_pitch: float = 35.0
+@export var inspect_max_yaw: float = 60.0
 
 
 var cards: Array = []
@@ -39,6 +43,10 @@ var inspect_locked: bool = false
 var inspected_card: Node3D = null
 var inspected_original_position: Vector3 = Vector3.ZERO
 var inspected_original_rotation: Vector3 = Vector3.ZERO
+
+
+var inspect_pitch: float = 0.0
+var inspect_yaw: float = 0.0
 
 @onready var npc_walk_controller: Node3D = get_node(npc_walk_controller_path)
 @onready var right_hand: Node3D = get_node(right_hand_path)
@@ -112,7 +120,11 @@ func _unhandled_input(event: InputEvent) -> void:
 func _handle_inspect_input(event: InputEvent) -> void:
 	if inspect_locked:
 		return
-	if event.is_action_pressed("card_inspect"):
+	if event is InputEventMouseMotion:
+		inspect_pitch = clampf(inspect_pitch - event.relative.y * inspect_rotate_speed * 0.1, -inspect_max_pitch, inspect_max_pitch)
+		inspect_yaw = clampf(inspect_yaw + event.relative.x * inspect_rotate_speed * 0.1, -inspect_max_yaw, inspect_max_yaw)
+		inspected_card.rotation_degrees = Vector3(inspect_pitch, inspect_yaw, 0)
+	elif event.is_action_pressed("card_inspect"):
 		_end_inspect()
 	elif event.is_action_pressed("card_confirm"):
 		_confirm_while_inspecting()
@@ -160,7 +172,6 @@ func _start_inspect() -> void:
 	await tween.finished
 
 	inspect_locked = false
-
 
 func _end_inspect() -> void:
 	is_inspecting = false

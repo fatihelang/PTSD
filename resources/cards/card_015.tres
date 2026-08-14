@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b2eiefngepppu"]
 
+[ext_resource type="Texture2D" uid="uid://cbte3dmq2k7wx" path="res://assets/cards/card_015.png" id="1_bjj3c"]
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_ji8h3"]
 
 [resource]
 script = ExtResource("1_ji8h3")
+card_id = "card_015"
 card_name = "Pajak orang kaya akan saya naikkan"
 trust_effect = 7
 trauma_effect = 3
+card_art = ExtResource("1_bjj3c")
 tag = "Pajak"

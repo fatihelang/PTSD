@@ -6,6 +6,7 @@
 script = ExtResource("1_ppd3e")
 npc_name = "Dosen"
 question_text = "Dana riset kami kalah jauh sama negara tetangga."
+sprite_id = "dosen"
 likes = Array[String](["Investasi", "Transparansi"])
 dislikes = Array[String](["Tunda"])
 reaction_like = "Dana riset kami jadi lega, makasih Pak."

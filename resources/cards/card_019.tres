@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://byybn7x1pakc4"]
 
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_105ea"]
+[ext_resource type="Texture2D" uid="uid://cbstavqhtpfxj" path="res://assets/cards/card_019.png" id="1_r74wy"]
 
 [resource]
 script = ExtResource("1_105ea")
+card_id = "card_019"
 card_name = "saya akan genjot ekspor nasional"
-trust_effect = 2
+trust_effect = 5
 trauma_effect = -8
+card_art = ExtResource("1_r74wy")
 tag = "Ekspor"

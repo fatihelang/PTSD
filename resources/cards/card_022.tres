@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp4wc7vstq2e0"]
 
+[ext_resource type="Texture2D" uid="uid://b05tkjnod8ome" path="res://assets/cards/card_022.png" id="1_8toa1"]
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_pqkwn"]
 
 [resource]
 script = ExtResource("1_pqkwn")
+card_id = "card_022"
 card_name = "saya akan buka ruang dialog seluas-luasnya"
 trust_effect = 8
 trauma_effect = -2
+card_art = ExtResource("1_8toa1")
 tag = "Dialog"

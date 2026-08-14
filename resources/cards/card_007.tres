@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://chn2b8bua7mfn"]
 
+[ext_resource type="Texture2D" uid="uid://mqd2ugd2kmdv" path="res://assets/cards/card_007.png" id="1_6igc2"]
 [ext_resource type="Script" uid="uid://buwukmvvf4pck" path="res://scripts/card_data.gd" id="1_xw2x2"]
 
 [resource]
 script = ExtResource("1_xw2x2")
+card_id = "card_007"
 card_name = "Subsidi akan saya tambah"
 trust_effect = 10
-trauma_effect = 6
+trauma_effect = -6
+card_art = ExtResource("1_6igc2")
 tag = "Subsidi"
