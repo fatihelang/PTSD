@@ -1,12 +1,14 @@
 extends Control
 
-@export var float_distance: float = 60.0
-@export var duration: float = 1.0
+@export var initial_float_distance: float = 40.0
+@export var initial_duration: float = 0.3
+@export var travel_duration: float = 0.5
+@export var fade_out_duration: float = 0.2
 
 @onready var value_text: Label = $ValueText
 
 
-func setup(text: String, color: Color) -> void:
+func setup(text: String, color: Color, target_pos: Vector2) -> void:
 	value_text.text = text
 	value_text.add_theme_color_override("font_color", color)
 
@@ -14,9 +16,12 @@ func setup(text: String, color: Color) -> void:
 	var start_pos := position
 
 	var tween := create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(self, "modulate:a", 1.0, duration * 0.2)
-	tween.tween_property(self, "position:y", start_pos.y - float_distance, duration)\
+	tween.tween_property(self, "modulate:a", 1.0, 0.15)
+	tween.parallel().tween_property(self, "position:y", start_pos.y - initial_float_distance, initial_duration)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.chain().tween_property(self, "modulate:a", 0.0, duration * 0.3)
-	tween.chain().tween_callback(queue_free)
+
+	tween.tween_property(self, "position", target_pos, travel_duration)\
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+
+	tween.tween_property(self, "modulate:a", 0.0, fade_out_duration)
+	tween.tween_callback(queue_free)

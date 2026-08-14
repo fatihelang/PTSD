@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6dl4x0qo68d1"]
+
+[ext_resource type="Script" uid="uid://s4wh7g2xlpb7" path="res://scripts/crowd_member.gd" id="1_lkkkp"]
+
+[node name="CrowdMember" type="Node3D" unique_id=199995302]
+script = ExtResource("1_lkkkp")
+
+[node name="Sprite" type="Sprite3D" parent="." unique_id=226585654]
+billboard = 2

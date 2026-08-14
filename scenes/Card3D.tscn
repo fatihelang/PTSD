@@ -4,15 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://djdrjuglual0" path="res://assets/cards/card_icon_maaf.png" id="2_s7pq4"]
 [ext_resource type="Texture2D" uid="uid://cpf8qxdbqc6qm" path="res://assets/cards/card_shadow.png" id="3_vo7a7"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1lqj"]
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="QuadMesh" id="QuadMesh_8p5cb"]
+size = Vector2(0.2, 0.29)
 
-[sub_resource type="BoxMesh" id="BoxMesh_j1lqj"]
-material = SubResource("StandardMaterial3D_j1lqj")
-size = Vector3(0.2, 0.29, 0.01)
-
-[sub_resource type="BoxMesh" id="BoxMesh_5h11f"]
-size = Vector3(0.18, 0.27, 0.008)
+[sub_resource type="QuadMesh" id="QuadMesh_7egtn"]
+size = Vector2(0.18, -0.27)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bx8n8"]
 size = Vector3(0.16, 0.25, 0.006)
@@ -21,11 +17,11 @@ size = Vector3(0.16, 0.25, 0.006)
 script = ExtResource("1_6a3dy")
 
 [node name="CardMesh" type="MeshInstance3D" parent="." unique_id=644604218]
-mesh = SubResource("BoxMesh_j1lqj")
+mesh = SubResource("QuadMesh_8p5cb")
 
 [node name="CardWhiteBorder" type="MeshInstance3D" parent="CardMesh" unique_id=2061103071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
-mesh = SubResource("BoxMesh_5h11f")
+mesh = SubResource("QuadMesh_7egtn")
 
 [node name="CardFace" type="MeshInstance3D" parent="CardMesh/CardWhiteBorder" unique_id=273352682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)

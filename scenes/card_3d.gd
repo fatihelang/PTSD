@@ -4,6 +4,7 @@ extends Node3D
 @export var forward_push: float = 0.02
 @export var glow_scale: float = 1.1
 @export var lerp_speed: float = 10.0
+@export var corner_radius: float = 0.18
 
 const TAG_COLORS := {
 	"Evaluasi": Color("6C7A89"),
@@ -24,6 +25,30 @@ const TAG_COLORS := {
 }
 const DEFAULT_FACE_COLOR := Color("CCCCCC")
 
+const ROUNDED_SHADER_CODE := """
+shader_type spatial;
+render_mode unshaded, cull_back, blend_mix;
+
+uniform vec4 base_color : source_color = vec4(1.0);
+uniform vec4 emission_color : source_color = vec4(0.0);
+uniform float emission_strength : hint_range(0.0, 3.0) = 0.0;
+uniform float radius : hint_range(0.0, 0.5) = 0.15;
+uniform float aspect = 1.0;
+
+void fragment() {
+	vec2 uv = (UV * 2.0 - 1.0);
+	uv.x *= aspect;
+	vec2 half_size = vec2(aspect, 1.0) - vec2(radius);
+	vec2 d = abs(uv) - half_size;
+	float dist = length(max(d, 0.0)) - radius;
+	if (dist > 0.0) {
+		discard;
+	}
+	ALBEDO = base_color.rgb + emission_color.rgb * emission_strength;
+	ALPHA = base_color.a;
+}
+"""
+
 @onready var label: Label3D = $CardMesh/CardWhiteBorder/CardFace/CardText
 @onready var effect_label: Label3D = $CardMesh/CardWhiteBorder/CardFace/CardEffectText
 @onready var border_black: MeshInstance3D = $CardMesh
@@ -37,32 +62,41 @@ var base_position: Vector3
 var is_current: bool = false
 var is_inspected: bool = false
 
-var border_normal_material: StandardMaterial3D
-var border_glow_material: StandardMaterial3D
-var face_material: StandardMaterial3D
+var border_black_mat: ShaderMaterial
+var border_white_mat: ShaderMaterial
+var face_mat: ShaderMaterial
+
+static var _shared_shader: Shader = null
 
 
 func _ready() -> void:
 	_setup_materials()
 
 
+func _get_shader() -> Shader:
+	if _shared_shader == null:
+		_shared_shader = Shader.new()
+		_shared_shader.code = ROUNDED_SHADER_CODE
+	return _shared_shader
+
+
+func _make_rounded_material(mesh_inst: MeshInstance3D, color: Color, radius_scale: float) -> ShaderMaterial:
+	var mat := ShaderMaterial.new()
+	mat.shader = _get_shader()
+	var mesh_size: Vector2 = (mesh_inst.mesh as QuadMesh).size
+	mat.set_shader_parameter("aspect", mesh_size.x / mesh_size.y)
+	mat.set_shader_parameter("radius", corner_radius * radius_scale)
+	mat.set_shader_parameter("base_color", color)
+	mat.set_shader_parameter("emission_color", Color(1.0, 0.85, 0.3))
+	mat.set_shader_parameter("emission_strength", 0.0)
+	mesh_inst.set_surface_override_material(0, mat)
+	return mat
+
+
 func _setup_materials() -> void:
-	border_normal_material = StandardMaterial3D.new()
-	border_normal_material.albedo_color = Color.BLACK
-	border_black.set_surface_override_material(0, border_normal_material)
-
-	border_glow_material = border_normal_material.duplicate()
-	border_glow_material.emission_enabled = true
-	border_glow_material.emission = Color(1.0, 0.85, 0.3)
-	border_glow_material.emission_energy_multiplier = 1.8
-
-	var white_material := StandardMaterial3D.new()
-	white_material.albedo_color = Color.WHITE
-	border_white.set_surface_override_material(0, white_material)
-
-	face_material = StandardMaterial3D.new()
-	face_material.albedo_color = DEFAULT_FACE_COLOR
-	face.set_surface_override_material(0, face_material)
+	border_black_mat = _make_rounded_material(border_black, Color.BLACK, 1.0)
+	border_white_mat = _make_rounded_material(border_white, Color.WHITE, 1.05)
+	face_mat = _make_rounded_material(face, DEFAULT_FACE_COLOR, 1.1)
 
 
 func set_card_data(data: CardData) -> void:
@@ -75,7 +109,7 @@ func set_card_data(data: CardData) -> void:
 
 
 func _apply_tag_color(tag: String) -> void:
-	face_material.albedo_color = TAG_COLORS.get(tag, DEFAULT_FACE_COLOR)
+	face_mat.set_shader_parameter("base_color", TAG_COLORS.get(tag, DEFAULT_FACE_COLOR))
 
 
 func _apply_icon(tag: String) -> void:
@@ -91,7 +125,6 @@ func _apply_icon(tag: String) -> void:
 		icon_sprite.visible = false
 
 
-
 func set_base_position(pos: Vector3) -> void:
 	base_position = pos
 	position = pos
@@ -99,22 +132,12 @@ func set_base_position(pos: Vector3) -> void:
 
 func set_current(current: bool) -> void:
 	is_current = current
-	border_black.set_surface_override_material(0, border_glow_material if current else border_normal_material)
+	border_black_mat.set_shader_parameter("emission_strength", 1.8 if current else 0.0)
 
 
 func set_inspected(inspected: bool) -> void:
 	is_inspected = inspected
 
-
-func _process(delta: float) -> void:
-	if is_inspected:
-		return
-	var target_y: float = base_position.y + (lift_amount if is_current else 0.0)
-	var target_z: float = base_position.z + (forward_push if is_current else 0.0)
-	var target_scale: float = glow_scale if is_current else 1.0
-	position.y = lerp(position.y, target_y, delta * lerp_speed)
-	position.z = lerp(position.z, target_z, delta * lerp_speed)
-	scale = scale.lerp(Vector3.ONE * target_scale, delta * lerp_speed)
 
 func play_deal_in(from_position: Vector3, target_rotation: Vector3, delay: float, duration: float) -> void:
 	position = from_position
@@ -126,3 +149,14 @@ func play_deal_in(from_position: Vector3, target_rotation: Vector3, delay: float
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "rotation_degrees", target_rotation, duration)\
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+func _process(delta: float) -> void:
+	if is_inspected:
+		return
+	var target_y: float = base_position.y + (lift_amount if is_current else 0.0)
+	var target_z: float = base_position.z + (forward_push if is_current else 0.0)
+	var target_scale: float = glow_scale if is_current else 1.0
+	position.y = lerp(position.y, target_y, delta * lerp_speed)
+	position.z = lerp(position.z, target_z, delta * lerp_speed)
+	scale = scale.lerp(Vector3.ONE * target_scale, delta * lerp_speed)
