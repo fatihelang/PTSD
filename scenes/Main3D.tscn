@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b11ai6u4l4fru"]
 
+[ext_resource type="Shader" uid="uid://ehveddy0byji" path="res://scripts/Floor.gdshader" id="1_iw5rc"]
 [ext_resource type="Script" uid="uid://uyk1o42g0edg" path="res://scenes/player_head.gd" id="1_vjhcd"]
 [ext_resource type="Script" uid="uid://dyuaf1a4unwow" path="res://scenes/right_hand.gd" id="2_1d72u"]
 [ext_resource type="Script" uid="uid://dp2c36esw52c6" path="res://scripts/hand_sprite.gd" id="3_pa4y5"]
@@ -17,18 +18,32 @@
 [ext_resource type="Script" uid="uid://0hjqxxsdyde5" path="res://scripts/danger_overlay.gd" id="12_0mw75"]
 [ext_resource type="Script" uid="uid://n052yf52dxsi" path="res://scripts/npc_walker.gd" id="12_6mlb6"]
 [ext_resource type="Script" uid="uid://d2mspqw3gve4h" path="res://scripts/npc_walk_controller.gd" id="12_nujbj"]
+[ext_resource type="Shader" uid="uid://che4535whkfel" path="res://scripts/Sky.gdshader" id="19_oqvrn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppd3e"]
-albedo_color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4n3rj"]
+render_priority = 0
+shader = ExtResource("1_iw5rc")
+shader_parameter/grass_light = Color(0.55, 0.78, 0.35, 1)
+shader_parameter/grass_mid = Color(0.35, 0.8, 0.3, 1)
+shader_parameter/grass_dark = Color(0.32, 0.58, 0.22, 1)
+shader_parameter/noise_scale = 10.0
+shader_parameter/wind_speed = 0.8
+shader_parameter/wind_strength = 0.35
+shader_parameter/gust_frequency = 6.0
+shader_parameter/gust_sharpness = 3.0
+shader_parameter/wind_direction = Vector2(1, 0.4)
+shader_parameter/band_count = 3
+shader_parameter/light_dir = Vector3(0.3, -0.7, 0.4)
+shader_parameter/rim_boost = 0.25
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_mffdw"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_oqvrn"]
 top_radius = 20.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx8n8"]
-albedo_color = Color(0.73544014, 0, 0.00017663985, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sng0t"]
+albedo_color = Color(0.5748631, 1.4318898e-06, 5.2943824e-07, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5h11f"]
-material = SubResource("StandardMaterial3D_bx8n8")
+[sub_resource type="PlaneMesh" id="PlaneMesh_u6w5n"]
+material = SubResource("StandardMaterial3D_sng0t")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d72u"]
 albedo_color = Color(0.48254722, 0.2974471, 0.1927746, 1)
@@ -73,24 +88,31 @@ expand_margin_top = 12.0
 expand_margin_right = 12.0
 expand_margin_bottom = 12.0
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jx8tp"]
-sky_top_color = Color(0.30980393, 0.6627451, 0.9098039, 1)
-sky_horizon_color = Color(0.65882355, 0.8745098, 1, 1)
-ground_bottom_color = Color(0.9529412, 0.9019608, 0.78431374, 1)
-ground_horizon_color = Color(0.9529412, 0.9019608, 0.78431374, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jx8tp"]
+shader = ExtResource("19_oqvrn")
+shader_parameter/sky_top_color = Color(0.25, 0.6, 0.98, 1)
+shader_parameter/sky_horizon_color = Color(0.65, 0.88, 1, 1)
+shader_parameter/ground_color = Color(0.55, 0.78, 0.92, 1)
+shader_parameter/horizon_blur = 0.1
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_shadow_color = Color(0.75, 0.85, 0.95, 1)
+shader_parameter/cloud_speed = 0.012
+shader_parameter/cloud_scale = 2.5
+shader_parameter/cloud_coverage = 0.4
+shader_parameter/cloud_edge_sharpness = 8.0
 
 [sub_resource type="Sky" id="Sky_5iqjx"]
-sky_material = SubResource("ProceduralSkyMaterial_jx8tp")
+sky_material = SubResource("ShaderMaterial_jx8tp")
 
-[sub_resource type="Environment" id="Environment_5h11f"]
+[sub_resource type="Environment" id="Environment_bx8n8"]
 background_mode = 2
 sky = SubResource("Sky_5iqjx")
-ambient_light_color = Color(0.6627451, 0.84705883, 0.9607843, 1)
-ambient_light_energy = 0.8
-glow_enabled = true
-glow_intensity = 0.4
-glow_strength = 0.8
-glow_bloom = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iqjx"]
+albedo_color = Color(0.41032645, 2.5629624e-06, 1.6123802e-06, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bx8n8"]
+material = SubResource("StandardMaterial3D_5iqjx")
 
 [node name="Main3d" type="Node3D" unique_id=1108025950]
 
@@ -101,13 +123,13 @@ light_energy = 1.5
 shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=2055354303]
-transform = Transform3D(1.4083264, 0, 0, 0, 1, 0, 0, 0, 0.99601495, 0.00016999245, -1.2477221, 0.0017193556)
-material_override = SubResource("StandardMaterial3D_ppd3e")
-mesh = SubResource("CylinderMesh_mffdw")
+transform = Transform3D(2.5638456, 0, 0, 0, 1, 0, 0, 0, 2.2263248, 0.00016999245, -1.1821222, 0.0017193556)
+material_override = SubResource("ShaderMaterial_4n3rj")
+mesh = SubResource("CylinderMesh_oqvrn")
 
 [node name="Carpet" type="MeshInstance3D" parent="." unique_id=1289539637]
-transform = Transform3D(2.071144, 0, 0, 0, 1, 0, 0, 0, 21.65444, 0, -0.13184452, -1.15067)
-mesh = SubResource("PlaneMesh_5h11f")
+transform = Transform3D(2.071144, 0, 0, 0, 1, 0, 0, 0, 45.63537, 0, -0.13184452, -0.005739212)
+mesh = SubResource("PlaneMesh_u6w5n")
 
 [node name="Podium" type="MeshInstance3D" parent="." unique_id=1997428624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1)
@@ -274,6 +296,9 @@ texture = ExtResource("9_j5406")
 [node name="TrustValue" type="Label" parent="HUD/StatBars/BarsVBox/TrustRow" unique_id=442839609]
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 28
 text = "50"
 horizontal_alignment = 2
@@ -291,6 +316,9 @@ texture = ExtResource("10_4n3rj")
 [node name="TraumaValue" type="Label" parent="HUD/StatBars/BarsVBox/TraumaRow" unique_id=1500459873]
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 28
 text = "5"
 horizontal_alignment = 2
@@ -315,7 +343,6 @@ text = "A / D — Pilih Kartu
      E — Konfirmasi"
 
 [node name="DangerOverlay" type="TextureRect" parent="HUD" unique_id=591573732]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -381,5 +408,9 @@ ending_display_path = NodePath("../HUD/EndingDisplay")
 stat_bars_path = NodePath("../HUD/StatBars")
 floating_numbers_path = NodePath("../HUD/FloatingNumbersLayer")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1376988686]
-environment = SubResource("Environment_5h11f")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=638179092]
+environment = SubResource("Environment_bx8n8")
+
+[node name="CarpetShadow" type="MeshInstance3D" parent="." unique_id=178204672]
+transform = Transform3D(1.0055416, 0, 0, 0, 0.89937717, 0, 0, 0, 45.399406, 1.0586271, -0.11102855, 0)
+mesh = SubResource("PlaneMesh_bx8n8")

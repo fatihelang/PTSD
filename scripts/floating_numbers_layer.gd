@@ -37,5 +37,5 @@ func _spawn_one(spawn_pos: Vector2, target_pos: Vector2, icon: Texture2D, text: 
 	var fn = FloatingNumberScene.instantiate()
 	add_child(fn)
 	fn.position = spawn_pos
-	var color := Color(0.4, 1.0, 0.4) if is_favorable else Color(1.0, 0.4, 0.4)
+	var color := Color(0.4, 1.0, 0) if is_favorable else Color(1.0, 0.4, 0.4)
 	fn.setup(icon, text, color, target_pos)
