@@ -1,17 +1,15 @@
 extends Node3D
 
-@export var crowd_count: int = 40
-@export var ring_radius_min: float = 4.5
-@export var ring_radius_max: float = 6.5
-@export var min_scale: float = 0.75
-@export var max_scale: float = 1.15
+@export var crowd_count: int = 30
+@export var area_width: float = 8.0
+@export var area_depth: float = 2.5
+@export var min_scale: float = 0.7
+@export var max_scale: float = 1.1
 @export var sprite_variants: int = 6
 @export var placeholder_size_px: Vector2i = Vector2i(300, 700)
-@export var silhouette_color: Color = Color(0.05, 0.05, 0.08, 1.0)
 @export var idle_bob_amount: float = 0.02
 @export var idle_bob_speed_min: float = 0.6
 @export var idle_bob_speed_max: float = 1.4
-@export var angle_range_degrees: float = 340.0
 
 const CrowdMemberScene = preload("res://scenes/CrowdMember.tscn")
 
@@ -27,10 +25,8 @@ func _spawn_crowd() -> void:
 		var member = CrowdMemberScene.instantiate()
 		add_child(member)
 
-		var angle: float = deg_to_rad(randf_range(-angle_range_degrees / 2.0, angle_range_degrees / 2.0) - 90.0)
-		var radius: float = randf_range(ring_radius_min, ring_radius_max)
-		var x: float = cos(angle) * radius
-		var z: float = sin(angle) * radius
+		var x: float = randf_range(-area_width / 2.0, area_width / 2.0)
+		var z: float = randf_range(-area_depth, 0.0)
 		member.position = Vector3(x, 0, z)
 
 		var s: float = randf_range(min_scale, max_scale)
@@ -48,5 +44,7 @@ func _get_variant_texture(variant_index: int) -> Texture2D:
 		return load(path)
 
 	if not _placeholder_cache.has(variant_index):
-		_placeholder_cache[variant_index] = PlaceholderTexture.make(silhouette_color, placeholder_size_px)
+		var hue: float = float(variant_index) / float(max(sprite_variants, 1))
+		var color: Color = Color.from_hsv(hue, 0.35, 0.55)
+		_placeholder_cache[variant_index] = PlaceholderTexture.make(color, placeholder_size_px)
 	return _placeholder_cache[variant_index]

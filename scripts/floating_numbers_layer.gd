@@ -45,7 +45,11 @@ func _spawn_one(spawn_pos: Vector2, target_pos: Vector2, icon: Texture2D, text: 
 	add_child(fn)
 	fn.position = spawn_pos
 <<<<<<< HEAD
+<<<<<<< HEAD
 	var color := Color(0.4, 1.0, 0) if is_favorable else Color(1.0, 0.4, 0.4)
+=======
+	var color := Color(0.4, 1.0, 0.4) if is_favorable else Color(1.0, 0.4, 0.4)
+>>>>>>> parent of 04e34b0 (V.1.0.1)
 	fn.setup(icon, text, color, target_pos)
 =======
 	var color := Color(0.4, 1.0, 0.4) if is_favorable else Color(1.0, 0.4, 0.4)
