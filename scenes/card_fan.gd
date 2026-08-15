@@ -23,6 +23,10 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var world_root_path: NodePath
 @export var player_head_path: NodePath
 
+@export var inspect_rotate_speed: float = 0.3
+@export var inspect_max_pitch: float = 35.0
+@export var inspect_max_yaw: float = 60.0
+
 @export var danger_overlay_path: NodePath
 @export var severe_threshold: int = 8
 
@@ -34,6 +38,9 @@ const Card3DScene = preload("res://scenes/Card3D.tscn")
 @export var inspect_max_pitch: float = 35.0
 @export var inspect_max_yaw: float = 60.0
 
+
+var inspect_pitch: float = 0.0
+var inspect_yaw: float = 0.0
 
 var cards: Array = []
 var current_index: int = 0
@@ -121,6 +128,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func _handle_inspect_input(event: InputEvent) -> void:
 	if inspect_locked:
 		return
+<<<<<<< HEAD
+=======
+
+>>>>>>> fd70af373f516c4702c12f2aa5b26baba8371b46
 	if event is InputEventMouseMotion:
 		inspect_pitch = clampf(inspect_pitch - event.relative.y * inspect_rotate_speed * 0.1, -inspect_max_pitch, inspect_max_pitch)
 		inspect_yaw = clampf(inspect_yaw + event.relative.x * inspect_rotate_speed * 0.1, -inspect_max_yaw, inspect_max_yaw)
@@ -150,6 +161,8 @@ func _update_selection_visual() -> void:
 func _start_inspect() -> void:
 	if cards.is_empty():
 		return
+	inspect_pitch = 0.0
+	inspect_yaw = 0.0
 	is_inspecting = true
 	inspect_locked = true
 	inspected_card = cards[current_index]
