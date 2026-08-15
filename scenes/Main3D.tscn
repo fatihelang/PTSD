@@ -4,12 +4,15 @@
 [ext_resource type="Script" uid="uid://dyuaf1a4unwow" path="res://scenes/right_hand.gd" id="2_1d72u"]
 [ext_resource type="Script" uid="uid://dp2c36esw52c6" path="res://scripts/hand_sprite.gd" id="3_pa4y5"]
 [ext_resource type="Script" uid="uid://d2rsx56rgst1w" path="res://scenes/card_fan.gd" id="3_qhbaj"]
+[ext_resource type="AudioStream" uid="uid://bc4ru1cc1qtn3" path="res://assets/sfx/blip(1).MP3" id="6_4n3rj"]
 [ext_resource type="Script" uid="uid://b6a0emb5vrl7s" path="res://scripts/speech_bubble.gd" id="6_c0t86"]
 [ext_resource type="Texture2D" uid="uid://b73cqiye68to8" path="res://assets/npc/petani_kopi_idle.png" id="7_pa4y5"]
 [ext_resource type="Script" uid="uid://c60axncn2w270" path="res://scripts/npc_sprite_controller.gd" id="7_uki8y"]
 [ext_resource type="Script" uid="uid://b3l4weits7eyh" path="res://scripts/ending_display.gd" id="8_37kgh"]
 [ext_resource type="Script" uid="uid://evyifngbxr4r" path="res://scripts/game_flow_controller.gd" id="8_xgncb"]
 [ext_resource type="Script" uid="uid://di21peuc35j8b" path="res://scripts/floating_numbers_layer.gd" id="9_gtawn"]
+[ext_resource type="Texture2D" uid="uid://c0yo2304ifj6q" path="res://assets/ui/Trust.png" id="9_j5406"]
+[ext_resource type="Texture2D" uid="uid://babmnli8qd3im" path="res://assets/ui/Trauma.png" id="10_4n3rj"]
 [ext_resource type="Script" uid="uid://d4kr63iedd2ia" path="res://scripts/stat_bars.gd" id="10_uki8y"]
 [ext_resource type="Script" uid="uid://0hjqxxsdyde5" path="res://scripts/danger_overlay.gd" id="12_0mw75"]
 [ext_resource type="Script" uid="uid://n052yf52dxsi" path="res://scripts/npc_walker.gd" id="12_6mlb6"]
@@ -58,27 +61,6 @@ expand_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgncb"]
 bg_color = Color(0, 0, 0, 0.8627451)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5iqjx"]
-bg_color = Color(0.88049585, 0.8804958, 0.88049585, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uki8y"]
-bg_color = Color(1.6845763e-06, 0.7819823, 1.92523e-06, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx8n8"]
-bg_color = Color(0.9714188, 0.030220335, 0.37790665, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa4y5"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -210,6 +192,11 @@ theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="TypeSfx" type="AudioStreamPlayer" parent="HUD/SpeechBubble" unique_id=1855864559]
+stream = ExtResource("6_4n3rj")
+volume_db = -5.0
+parameters/looping = true
+
 [node name="EndingDisplay" type="Panel" parent="HUD" unique_id=1370872846]
 anchors_preset = 15
 anchor_right = 1.0
@@ -254,6 +241,8 @@ script = ExtResource("9_gtawn")
 world_anchor_path = NodePath("../../NPCThrowTarget/FloatingNumberAnchor")
 camera_path = NodePath("../../PlayerHead/Camera3D")
 stat_bars_path = NodePath("../StatBars")
+icon_trust = ExtResource("9_j5406")
+icon_trauma = ExtResource("10_4n3rj")
 
 [node name="StatBars" type="Control" parent="HUD" unique_id=38054827]
 layout_mode = 3
@@ -263,26 +252,48 @@ offset_top = 24.0
 offset_right = 244.0
 offset_bottom = 84.0
 script = ExtResource("10_uki8y")
+icon_trust = ExtResource("9_j5406")
+icon_trauma = ExtResource("10_4n3rj")
 
 [node name="BarsVBox" type="VBoxContainer" parent="HUD/StatBars" unique_id=1978309568]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 104.0
+offset_bottom = 108.0
 theme_override_constants/separation = 8
 
-[node name="TrustBar" type="ProgressBar" parent="HUD/StatBars/BarsVBox" unique_id=1099316467]
-custom_minimum_size = Vector2(220, 22)
+[node name="TrustRow" type="HBoxContainer" parent="HUD/StatBars/BarsVBox" unique_id=916364379]
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_5iqjx")
-theme_override_styles/fill = SubResource("StyleBoxFlat_uki8y")
-show_percentage = false
+theme_override_constants/separation = 8
 
-[node name="RepBar" type="ProgressBar" parent="HUD/StatBars/BarsVBox" unique_id=1098072029]
-custom_minimum_size = Vector2(220, 22)
+[node name="TrustIcon" type="TextureRect" parent="HUD/StatBars/BarsVBox/TrustRow" unique_id=754176943]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_5iqjx")
-theme_override_styles/fill = SubResource("StyleBoxFlat_bx8n8")
-show_percentage = false
+texture = ExtResource("9_j5406")
+
+[node name="TrustValue" type="Label" parent="HUD/StatBars/BarsVBox/TrustRow" unique_id=442839609]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "50"
+horizontal_alignment = 2
+
+[node name="TraumaRow" type="HBoxContainer" parent="HUD/StatBars/BarsVBox" unique_id=1692469743]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TraumaIcon" type="TextureRect" parent="HUD/StatBars/BarsVBox/TraumaRow" unique_id=1411639459]
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("10_4n3rj")
+
+[node name="TraumaValue" type="Label" parent="HUD/StatBars/BarsVBox/TraumaRow" unique_id=1500459873]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "5"
+horizontal_alignment = 2
 
 [node name="ControlHint" type="PanelContainer" parent="HUD" unique_id=1976324468]
 anchors_preset = 1
@@ -304,6 +315,7 @@ text = "A / D — Pilih Kartu
      E — Konfirmasi"
 
 [node name="DangerOverlay" type="TextureRect" parent="HUD" unique_id=591573732]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -327,6 +339,7 @@ stage_marker_path = NodePath("../NPCThrowTarget")
 walker_a_path = NodePath("WalkerA")
 walker_b_path = NodePath("WalkerB")
 speech_bubble_path = NodePath("../HUD/SpeechBubble")
+player_head_path = NodePath("../PlayerHead")
 
 [node name="EntryMaker" type="Marker3D" parent="NPCWalkController" unique_id=943073892]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9236765, 0, -19.88)

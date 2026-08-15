@@ -91,7 +91,8 @@ func _spawn_fan(hand: Array) -> void:
 		var y = base_position.y - (1.0 - cos(angle_rad)) * radius * 0.6
 		var z = base_position.z + i * card_z_step
 
-		card.base_position = Vector3(x, y, z)
+		card.set_base_position(Vector3(x, y, z))
+		card.set_render_index(i)
 		card.set_card_data(hand[i])
 		card.play_deal_in(deck_origin, Vector3(0, 0, -angle_deg), i * deal_stagger, deal_duration)
 

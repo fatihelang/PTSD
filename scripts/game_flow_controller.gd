@@ -27,13 +27,13 @@ func _ready() -> void:
 
 func _on_question_shown(question: QuestionData, hand: Array) -> void:
 	await npc_walk_controller.transition_to(question.sprite_id)
-	npc_walk_controller.show_new_question(question.npc_name, question.question_text)
+	await npc_walk_controller.show_new_question(question.npc_name, question.question_text)
 	card_fan.show_hand(hand, question)
 
 
+
 func _on_npc_reacted(text: String, category: String) -> void:
-	npc_walk_controller.show_reaction(text, category)
-	await get_tree().create_timer(reaction_display_seconds).timeout
+	await npc_walk_controller.show_reaction(text, category)
 	GameManager.advance_to_next_question()
 
 

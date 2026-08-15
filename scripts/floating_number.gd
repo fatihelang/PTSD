@@ -5,10 +5,12 @@ extends Control
 @export var travel_duration: float = 0.5
 @export var fade_out_duration: float = 0.2
 
-@onready var value_text: Label = $ValueText
+@onready var icon_rect: TextureRect = $HBox/Icon
+@onready var value_text: Label = $HBox/ValueText
 
 
-func setup(text: String, color: Color, target_pos: Vector2) -> void:
+func setup(icon: Texture2D, text: String, color: Color, target_pos: Vector2) -> void:
+	icon_rect.texture = icon
 	value_text.text = text
 	value_text.add_theme_color_override("font_color", color)
 

@@ -7,9 +7,18 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_67gus")
 
-[node name="ValueText" type="Label" parent="." unique_id=1964863753]
+[node name="HBox" type="HBoxContainer" parent="." unique_id=214420712]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 24
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="HBox" unique_id=106741819]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="ValueText" type="Label" parent="HBox" unique_id=1810916956]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28

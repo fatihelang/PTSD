@@ -3,6 +3,8 @@ extends Node3D
 @export var lift_amount: float = 0.04
 @export var forward_push: float = 0.02
 @export var lerp_speed: float = 10.0
+@export var base_render_priority: int = 0
+
 
 @onready var label: Label3D = $CardText
 @onready var effect_label: Label3D = $CardEffectText
@@ -17,6 +19,9 @@ var is_inspected: bool = false
 
 func _ready() -> void:
 	return
+	
+	
+
 
 func set_card_data(data: CardData) -> void:
 	card_data = data
@@ -44,8 +49,14 @@ func set_base_position(pos: Vector3) -> void:
 	position = pos
 
 
+func set_render_index(index: int) -> void:
+	base_render_priority = index
+	art.render_priority = index
+
+
 func set_current(current: bool) -> void:
 	is_current = current
+	art.render_priority = base_render_priority + (50 if current else 0)
 
 
 
